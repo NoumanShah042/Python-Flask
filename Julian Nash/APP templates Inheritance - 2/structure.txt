@@ -1,0 +1,35 @@
+app
+├── app
+│   ├── __init__.py
+│   ├── admin_views.py
+│   ├── static
+│   │   ├── css
+│   │   │   └── style.css
+│   │   ├── img
+│   │   │   └── flask.png
+│   │   └── js
+│   │       └── app.js
+│   ├── templates
+│   │   ├── admin
+│   │   │   ├── dashboard.html
+│   │   │   └── templates
+│   │   │       └── admin_template.html
+│   │   └── public
+│   │       ├── index.html
+│   │       └── templates
+│   │           └── public_template.html
+│   └── views.py
+├── requirements.txt
+└── run.py
+
+
+
+
+Our base classes
+admin_template.html
+public_template.html
+
+
+Theses files inherit above files 
+index.html
+dashboard.html

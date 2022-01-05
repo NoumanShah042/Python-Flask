@@ -1,0 +1,153 @@
+flask shell
+
+from app import db
+create d file
+
+exit()
+
+*************************************
+
+sqlite3 shell commands
+https://sqlite.org/cli.html
+
+
+sqlite3 db.sqlite3
+
+sqlite> .tables
+
+sqlite> .schema
+
+sqlite> select * from customer ;
+
+sqlite> select * from product;
+
+sqlite> select * from "order" ;    # use double quotes because order is a keyword in sqlite
+
+sqlite> .exit
+
+**********************************
+open python interpretor python
+
+Insert Data
+
+>>> from app import db , Product , Order , Customer
+>>> nouman = Customer(first_name='Nouman', last_name='shah', address='123 lhr', city='lahore', postcode='3454',email='noumanshah@gmail.com')
+>>> db.session.add(nouman)
+>>> db.session.commit()
+
+
+>>> computer = Product(name='Computer',price=20000)
+>>> db.session.add(computer)
+>>> db.session.commit()
+>>>    
+
+>>> phone= Product(name='Phone',price=200 )
+>>> db.session.add(phone) 
+>>> db.session.commit()
+>>>     
+
+
+>>> order = Order(coupon_code='FREESHIPPING', customer_id=1, products=[computer,phone])
+or
+>>> order = Order(coupon_code='FREESHIPPING', customer=nouman , products=[computer,phone])      # nouman is an Customer object
+>>> db.session.add(order)
+>>> db.session.commit()
+>>>  
+
+
+ 
+order_id  product_id
+   1		1	show that order_id  1 is aasociated with product_id 1 (which is computer)
+   1 		2	show that order_id  1 is also  aasociated with product_id 2  (which is phone)
+
+**********************************
+
+Get Order and its attributes and see all the products in it :
+
+>>> get_order = Order.query.filter_by(id=1).first()
+
+>>> get_order
+<Order 1>
+
+>>> get_order.id
+1
+
+>>> get_order.products
+[<Product 5>, <Product 9>]
+
+>>> get_order.products[0]
+<Product 5>
+
+>>> get_order.products[0].name
+'FireBrick'
+
+>>> get_order.products[0].price
+72
+       
+
+Extend the order with a new Product: --------------
+
+>>> chair = Product(name='Chair',price=2500)
+>>> db.session.add(chair)
+>>> db.session.commit()
+
+
+>>> get_order.products.extend([chair])
+>>> db.session.commit()
+
+
+>>> get_order.products
+[<Product 5>, <Product 9>, <Product 11>]
+
+
+>>> get_order.products[2].name
+'Chair'
+                                                                                                                                                                                                                                                
+
+**********************************
+
+Uppdate data
+
+>>> update_this = Customer.query.filter_by(id=1).first()
+>>> update_this
+<Customer 1>
+>>> update_this.first_name
+'Nouman'
+>>> update_this.address = 'house # 23 lahore'
+>>> db.session.commit()
+>>>   
+
+ 
+**********************************
+
+
+
+>>> chair = Product(name='Chair',price=2500)
+>>> db.session.add(chair)
+>>> db.session.commit()
+
+ get_order.products.extend([chair])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

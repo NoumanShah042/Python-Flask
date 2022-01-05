@@ -1,0 +1,50 @@
+nginx vs gunicorn   best for flask
+
+
+deploy to a linux server , is deploy your app on a virtual machine hosted by a company like Linode or digital_ocean or AWS(Amazon Web Services)
+
+
+we are using Lindoe to deploy our application to a linux server.
+
+***********************************************
+
+deploy your app :
+
+
+In this Python Flask Tutorial, we will be learning how to deploy our application to a Linux Server from scratch using Linode.
+
+If you would like $20 of free credit towards a Linode account, then you can use my link here to sign up: 
+https://linode.com/coreyschafer
+
+We will be covering the entire deployment of a Flask application. This includes spinning up a new Linux Server and tightening its security with SSH keys and firewalls. Then we will install Nginx and Gunicorn so that we can get our Flask App running. Let's get started...
+
+To skip the server setup, jump to 26:48
+
+
+***********************************************
+
+Buy domain name for your app: 
+
+In this Python Flask Tutorial, we will be learning how to set up a custom domain name for our application. We will use NameCheap as our domain registrar and Linode to host our server. Let's get started...
+
+If you would like $20 of free credit towards a Linode account, then you can use my link here to sign up: 
+https://linode.com/coreyschafer
+
+Buy a domain at NameCheap:
+https://www.namecheap.com/?clickID=1V6R3TTufxyLUbHwUx0Mo3EtUkB2I%3ATAqzNz3Q0&irgwc=1&utm_source=IR&utm_medium=Affiliate&utm_campaign=1358746&affnetwork=ir&ref=ir
+
+
+https://www.namecheap.com/?clickID=1V6R3TTufxyLUbHwUx0Mo3EtUkB2I%3ATAqzNz3Q0&irgwc=1&utm_source=IR&utm_medium=Affiliate&utm_campaign=1358746&affnetwork=ir&ref=ir
+
+Linode DNS Documentation:
+https://www.linode.com/docs/guides/dns-manager/
+
+
+
+********************************
+
+Some domain registrar and web hosting company
+
+1-	GoDaddy  (  is an American publicly traded Internet domain registrar and web hosting company )
+2-	NameCheap:
+3- 	https://domains.google/

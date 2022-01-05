@@ -1,0 +1,17 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>profile</title>
+    </head>
+    <body>
+<div>
+    <a href="{{ url_for('index') }}">Home</a>
+    {% if current_user.is_anonymous %}
+    <a href="{{ url_for('login') }}">Login</a>
+    {% else %}
+    <a href="{{ url_for('logout') }}">Logout</a>
+    {% endif %}
+</div>
+<h1>Hi, {{ current_user.username }}!</h1>
+    </body>
+</html>

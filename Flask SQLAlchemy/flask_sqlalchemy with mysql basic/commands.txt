@@ -1,0 +1,53 @@
+pip install mysql-python or 
+pip install mysqlclient
+
+
+>>> from app import db
+>>> db.create_all()
+
+>>> from app import db
+>>> from app import UserInfo
+>>> u = UserInfo('codeloop',1234)
+>>> u1 = UserInfo('parwiz', 12345)
+>>> db.session.add(u)
+>>> db.session.add(u1)
+>>> db.session.commit()
+
+
+
+Selecting Data
+Also you can select or retrieve the data from your Mysql Database, so now let’s open our
+
+python terminal in Pycharm IDE, and retrieve our data.
+
+>>> user_data = UserInfo.query.all()
+>>> for user in user_data:
+...     print(user.username)
+ 
+
+
+Updating Data 
+updating data is also an easy task with Flask SQLAlchemy, let’s update our first record in the database.
+
+>>> update = UserInfo.query.filter_by(id=1).first()
+>>> update.username = 'updated data'
+>>> db.session.commit()
+ 
+
+
+
+Deleting Data
+Also you can delete data using this commands in Flask SQLAlchemy.
+
+>>> deleted = UserInfo.query.filter_by(id=1).first()
+>>> db.session.delete(deleted)
+ 
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+Flask imports
+We need to import a few things from Flask for this example:
+
+from flask import render_template, request, session, redirect, url_for
+
+
+render_template - Allows us to render a template to the browser
+request - To handle the incoming form data and URL
+session - The session object
+redirect - Allows us to redirect users to various parts of our app
+url_for - Constructs URL's from arguments
+
+
+
+print(request.path)      # /sign-in
+print(request.url)      # http://127.0.0.1:5000/sign-in

@@ -1,0 +1,54 @@
+Create a new route
+For this example, we're going to create a simple route with the URL /cookies:
+************************************
+@app.route("/cookies")
+def cookies():
+
+    resp = make_response("Cookies")
+
+    return resp
+************* 
+
+We've create a response by passing a simple string to the make_response function resp = make_response("Cookies") which is then returned.
+
+The exact same thing would be achieved with:
+
+************* 
+@app.route("/cookies")
+def cookies():
+
+    return "Cookies"
+************************************
+
+
+We're not covering make_response in detail in this part, just know that you can build your response ahead of time and modify it before returning it!
+
+If you wanted to return a template, you would do the following:
+
+************************************
+@app.route("/cookies")
+def cookies():
+
+    resp = make_response(render_template("cookies.html"))
+
+    return resp
+************************************
+
+
+It's exactly the same as:
+************************************
+@app.route("/cookies")
+def cookies():
+
+    return render_template("cookies.html")
+
+************************************
+The difference is that by using make_response we can build and modify our request ahead of sending it.(ہم اپنی درخواست بھیجنے سے پہلے اس کی تشکیل اور ترمیم کرسکتے ہیں)
+
+Simply by using make_response we can modify our response before return it.
+
+
+
+
+
+

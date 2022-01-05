@@ -1,0 +1,10 @@
+https://stackoverflow.com/questions/31235376/pycharm-doesnt-recognise-installed-module
+
+
+ 
+
+If you are using PyCharms CE (Community Edition), then click on:
+
+File->Default Settings->Project Interpretor
+
+See the + sign at the bottom, click on it. It will open another dialog with a host of modules available. Select your package (e.g. requests) and PyCharm will do the rest.

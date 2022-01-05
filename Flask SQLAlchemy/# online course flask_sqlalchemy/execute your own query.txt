@@ -1,0 +1,25 @@
+result = db.engine.execute('select * from customer')
+
+ typeof(result)
+
+for r in result:
+...     print(r[0], r[1])
+
+**************************
+
+
+Have you tried:
+
+result = db.engine.execute("<sql here>")
+
+**************************
+ OR
+
+from sqlalchemy import text
+
+sql = text('select name from penguins')
+result = db.engine.execute(sql)
+names = [row[0] for row in result]
+print names
+
+**************************

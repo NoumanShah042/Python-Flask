@@ -1,0 +1,91 @@
+Creating a JSON handler in Flask
+
+
+Before we attempt to post any data to our app, we need to create a handler for it.
+
+We're submitting data to our app so we'll need to import request from flask.
+
+We're also going to be creating a JSON response so go ahead and import jsonify from flask too.
+
+We will also create a response object, so go ahead and import make_response from flask.
+
+
+***********************************
+
+Flask makes working with JSON easy, providing many useful functions and methods such as is_json, get_json() and jsonify(),
+ along with helpful functions such as make_response(). Creating API's, webhooks and handling JSON is only a few lines of code away!
+
+***********************************
+
+
+Now we need a method to handle the incoming JSON. Flask provides the handy 
+
+request.get_json() method, which parses any incoming JSON data into a Python dictionary.
+
+request.get_json() ->   convert json object to  python dictionary 
+
+jsonify -> convert python  dictionary to json object    (   jsonify() -> serialize the Python dictionary into a JSON string.)
+make_response  -> it will make response object
+***********************************
+
+from flask import jsonify, make_response
+
+
+@app.route("/json")
+def json_example():
+    return "Thanks!",200
+
+***********************************
+
+body-> raw -> select (json)
+
+and type  some json code and send it:
+
+{
+  "name":"Nouman",
+  "messageg" : "Posting json to flask"
+}
+
+***********************************
+
+Parsing incoming JSON:
+
+
+@app.route("/json", methods=["POST"])
+def json_example():
+    # Validate the request body contains JSON
+    if request.is_json:
+        # Parse the JSON into a Python dictionary
+        req = request.get_json()
+        # Print the dictionary
+        print(req)
+        # Return a string along with an HTTP status code
+        return "JSON received!", 200
+    else:
+        # The request body wasn't JSON so return a 400 HTTP status code
+        return "Request was not JSON", 400
+
+***********************************
+
+Returning JSON 
+
+
+@app.route("/json", methods=["POST"])
+def json_example():
+
+    if request.is_json:
+
+        req = request.get_json()
+
+        response_body = {
+            "message": "JSON received!",
+            "sender": req.get("name")
+        }
+
+        res = make_response(jsonify(response_body), 200)
+
+        return res
+
+    else:
+
+        return make_response(jsonify({"message": "Request body must be JSON"}), 400)

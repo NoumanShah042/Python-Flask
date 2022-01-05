@@ -1,0 +1,31 @@
+<!-- The Flask session object - Python on the web - Learning Flask Series Pt. 16 -->
+{% extends "public/templates/public_template.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block main %}
+
+<div class="container">
+	<div class="row">
+		<div class="col">
+
+			<h1>Profile</h1>
+			<hr>
+
+			<div class="card">
+				<div class="card-body">
+					<h4>{{ user["username"]}}</h4>
+                    <hr>
+                    <p>{{ user["email"]}}</p>
+                    <p class="text-muted">{{ user["bio"]}}</p>
+				</div>
+			</div>
+
+            <br>
+            <a href="/sign-out"><button  class="btn btn-primary">Sign out</button></a>
+
+		</div>
+	</div>
+</div>
+
+{% endblock %}

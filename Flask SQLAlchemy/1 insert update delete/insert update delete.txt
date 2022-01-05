@@ -1,0 +1,40 @@
+python
+
+>>> from alchemy import db    //  alchemy is the file(module) name
+
+C:\ProgramData\Anaconda3\lib\site-packages\flask_sqlalchemy\__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+
+
+Add record to database:
+
+>>> from alchemy import Example
+>>> new_ex = Example(1, 'hello Nouman')
+>>> db.session.add(new_ex)
+>>> db.session.commit()
+
+********************************
+
+Update record to database
+
+>>> update_this = Example.query.filter_by(id=3).first()
+>>> update_this
+<Example 3>
+>>> update_this.data = 'updated !'
+>>> db.session.commit()
+>>>
+
+this is cool about sql alchemy object relational mapper , you only need to manipulate the object and it will take care of that record in database
+
+********************************
+
+delete  record from database
+
+>>> delete_this = Example.query.filter_by(id=2).first()
+>>> delete_this
+<Example 2>
+>>> db.session.delete(delete_this)
+>>> db.session.commit()
+>>>
+
+********************************

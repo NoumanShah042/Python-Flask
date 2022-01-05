@@ -1,0 +1,5 @@
+name of method and route can be same and its goood that thay are same
+
+instead of direct links to the route in navigatinn bar, use dynamic system using ----- url_for("method_name")
+example:
+<a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>

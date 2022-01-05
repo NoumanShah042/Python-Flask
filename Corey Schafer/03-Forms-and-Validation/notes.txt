@@ -1,0 +1,8 @@
+https://flask-wtf.readthedocs.io/en/stable/quickstart.html?highlight=datarequired
+
+
+https://wtforms.readthedocs.io/en/2.3.x/fields/                           fields
+
+
+  
+WTF stands for WT Forms which is intended to provide the interactive user interface for the user. The WTF is a built-in module of the flask which provides an alternative way of designing forms in the flask web applications

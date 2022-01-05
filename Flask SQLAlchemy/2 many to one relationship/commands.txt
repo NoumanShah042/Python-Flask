@@ -1,0 +1,122 @@
+ python 
+>>> from app import db  
+>>> db.create_all()                                                                                 
+>>> from app import Pet, Person  
+
+****************************************
+
+Add Recored of Person   :
+                                                                                        
+nouman = Person(name='Nouman')                                                                                                   
+db.session.add(nouman)                                                                                                           
+db.session.commit()   
+                                                                                                           
+farhan = Person(name="Farhan")                                                                                                   
+db.session.add(farhan)                                                                                                            
+db.session.commit()  
+
+****************************************
+
+Add record of Pet using backref='owner' 
+
+ #  nouman is an Person object we created
+                                                                                                          
+spot = Pet(name="spot", owner=nouman)      
+db.session.add(spot)                                                                                                              
+db.session.commit()
+                                                                                                               
+dog = Pet(name="dog", owner=farhan)                                                                                               
+db.session.add(dog)                                                                                                               
+db.session.commit() 
+
+Add record of Pet using owner_id : ----------------------- 
+                                                                                                             
+cat = Pet(name="cat",owner_id=nouman.id)                                                                                          
+db.session.add(cat)
+db.session.commit()   
+
+Using owner_id hard code value : ----------------------- 
+
+>>> deer = Pet(name='deer', owner_id=2) 
+>>> db.session.add(deer) 
+>>> db.session.commit() 
+
+****************************************
+
+Access Person and its pets    
+
+>>> get_user = Person.query.filter_by(id=1).first()
+
+>>> get_user
+<Person 1>
+
+>>> get_user.id
+1
+>>> get_user.name
+'Nouman'
+
+>>> get_user.pets
+[<Pet 1>, <Pet 3>]
+
+
+>>> get_user.pets[0].name
+'spot'
+>>> get_user.
+
+
+
+****************************************
+
+
+Access Pet and its Owner
+
+                                                                         
+>>> spot = Pet.query.filter_by(name='spot').first()
+
+>>> spot.id
+1
+
+>>> spot.name
+'spot'
+
+
+>>> spot.owner_id
+1
+
+>>> spot.owner
+<Person 1>
+
+
+>>> spot.owner.name
+'Nouman' 
+
+******************************************
+
+r = db.engine.execute("select owner_id from pet where name='spot'")
+>>> for r in r:
+...     print(r)
+...
+(1,)
+
+
+
+>>> r = db.engine.execute("select name from person where id=(select owner_id from pet where name='spot')")
+>>> for r in r:
+...     print(r)
+...
+('Nouman',)
+
+      
+******************************************                                                                                                                                                                                                                              
+
+
+
+
+
+
+
+
+
+
+
+   

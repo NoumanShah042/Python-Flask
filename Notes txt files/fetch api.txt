@@ -1,0 +1,32 @@
+Making asynchronus requests from the client to the server is a common feature of most modern web applications, allowing a more fluid user experience.
+
+In this episode of the "Learning Flask" series, you'll learn how to make asynchronus requests from the client to your application using some basic vanilla JavaScript and the Fetch API.
+
+The Fetch API supersedes XML AJAX requests, allowing a relitively clean and simple promise based way to post and fetch data to and from the server, with a simple yet powerful feature set for catching errors and bad requests.
+
+
+
+
+
+************************************
+
+Fetch explained
+fetch() takes 2 arguments, a URL or input and a set of options or init as descibed in the fetch documentation.
+
+We've provided the URL to our Flask JSON handler using ${window.origin} followed by our URL, along with an init object containing several keys and values to setup the type of request we want to make. In our case:
+
+method: "POST" As we're posting data to the server
+credentials: "include" To send any cookies from the current domain/client to the server
+body: JSON.stringify(entry) Converts our JSON object into a string
+cache: "no-cache" We're not interested in any cached data
+headers: new Headers({"content-type": "application/json"}) Adds a header to tell the server we're sending JSON
+
+
+
+You'll then see we've got .then() chained to our fetch() request which does some error handling for us, depending on what status code the server responds with. We're going to leave that as is for now.
+
+response.json() parses returned JSON from a string to a JSON object which we can access with the data variable passed into the callback function chained to it using .then()! 😅
+
+The final block is a .catch() containing a callback function to catch and handle any errors with our fetch request.
+
+Tip - The more you use fetch the more it starts to make sense!

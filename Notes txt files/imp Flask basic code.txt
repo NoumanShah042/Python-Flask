@@ -1,0 +1,304 @@
+
+from flask import Flask
+
+app = Flask(__name__)    # just refernce to that file
+
+
+@app.route('/')   # define url
+def hello():  # this function will execute if we go to this url
+    return 'Hello, World!'   # whatever we return it just spit on the web browser and it can interpret anything( html or variable or any thing)
+    return '<h1>Hello, World!<\h1>'
+    # The return type must be a string, dict, tuple, Response instance, or WSGI callable, but it was a int.
+    
+    return '''
+    hello yaha pr hm kuch bhi likh skte 
+    chahe pora web ki html likh do
+    
+    '''
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
+
+******************************************************************
+
+from flask import Flask
+
+app = Flask(__name__)    # just refernce to that file
+
+
+@app.route('/home/<string:name>')   # now whatever pops up in url we have access it to code (name must same) 
+def hello(name):   
+    return 'Hello,' + name
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+******************************************************************
+# dynamic urls
+
+
+from flask import Flask
+
+app = Flask(__name__)    # just refernce to that file
+
+
+@app.route('/home/<int:id>')   # define url
+def hello(id):  # this function will execute if we go to this url
+    return 'Hello,' + str(id)
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+******************************************************************
+
+from flask import Flask
+
+app = Flask(__name__)    # just refernce to that file
+
+
+@app.route('/home/user/<string:name>/posts/<int:id>')   # define url as http://127.0.0.1:5000/home/user/Nouman/posts/27
+def hello(name, id):   
+    return 'Hello,' +name +"  your id is  "+ str(id)
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+******************************************************************
+
+from flask import Flask, render_template
+
+app = Flask(__name__)     
+
+
+@app.route('/')    
+def index():   
+    return render_template('index.html')    #  html file should be in templates folder
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+******************************************************************
+Template inheritance
+
+
+base.html *****************
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %}
+        
+    {% endblock head %}
+    
+</head>
+<body>
+    {% block body %}
+        
+    {% endblock body %}
+</body>
+</html>
+
+
+index.html *****************
+
+{% extends 'base.html' %}     <!--this will paste all code of base.html here-->
+
+{% block head %}                  <!--and we need to add contents to the blocks we define in base.html--> 
+<title>Home page</title>
+{% endblock head %}
+
+{% block body %}
+    <h1>We are doing Template inheritance</h1>
+{% endblock body %}
+
+
+app.py *****************
+
+from flask import Flask, render_template
+
+app = Flask(__name__)     
+
+
+@app.route('/')    
+def index():   
+    return render_template('index.html')
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
+
+
+******************************************************************
+
+sending data from app.py to html file (post)
+
+from flask import Flask, render_template
+
+app = Flask(__name__)     
+
+
+@app.route('/')    
+def index():   
+    return render_template('index.html')    #  html file should be in templates folder
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+******************************************************************
+Template inheritance
+
+
+base.html *****************
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %}
+        
+    {% endblock head %}
+    
+</head>
+<body>
+    {% block body %}
+        
+    {% endblock body %}
+</body>
+</html>
+
+
+post.html *****************
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Posts</title> 
+{% endblock %}
+
+{% block body %}
+<h1>All Posts</h1>
+
+{% for post in posts %}
+    <h1>{{ post.title}}</h1>
+    <p>{{ post.content}}</p>
+{% endfor %}
+
+{% endblock %}
+
+
+
+
+app.py *****************
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+all_posts = [
+    {"title": "post 1",
+     "content": "This is post 1"},
+    {"title": "post 2",
+     "content": "This is post 2"}]
+
+
+@app.route('/')
+def index():
+    return render_template('post.html', posts=all_posts)
+    # we can access this data(all_posts) in post.html using posts 
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
+
+
+
+******************************************************************
+
+<link rel="stylesheet" href="static/css/main.css">
+    
+or 
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+
+******************************************************************
+
+{% for post in posts %}     <!-- jinja for loop -->
+        <h2>{{ post.title }}</h2>
+
+        {% if post.author %}       <!--if author exist then do this, else do this-->
+            <h3>By: {{ post.author }}</h3>
+        {% else %}
+            <h3>By: N/A</h3>
+        {% endif %}
+        
+        <p>{{ post.content }}</p>
+        <a href='/posts/delete/{{post.id}}'>Delete</a>
+        <a href='/posts/edit/{{post.id}}'>Edit</a>
+        <hr>
+{% endfor%}
+
+
+******************************************************************
+
+ <hr>
+    <h2>Create New Blog Post:</h2>
+    <form action='/posts' method='POST'>
+        Title: <input type='text' name='title' id='title'>
+        <br>
+        Author: <input type='text' name='author' id='author'>
+        <br>
+        Post: <input type='text' name='content' id='content'>
+        <br>
+        <input type='submit' value='Post'>
+    </form>
+    <hr>
+
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************
+******************************************************************

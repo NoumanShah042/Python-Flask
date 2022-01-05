@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Posts</title>
+{% endblock %}
+
+{% block body %}
+<h1>All Posts</h1>
+
+
+<div class="container">
+
+
+    <h1>Jinja Templates</h1>
+    <hr>
+
+    <h4>Variables</h4>
+    <p>Name: {{var1 }}</p>
+    <hr>
+
+    <h4>Looping through List</h4>
+    <ul>
+        {% for lang in langs %}
+        <li>{{lang}}</li>
+        {% endfor %}
+    </ul>
+    <hr>
+
+
+
+    <h4>Looping with index</h4>
+    <ul>
+        {% for lang in langs %}
+        <li>{{ loop.index }} : {{lang}}</li>
+        <!--use loop.index0 for index start with 0 and  loop.index for start from 1 -->
+        {% endfor %}
+    </ul>
+    <hr>
+
+    <h4>Looping through dictionary</h4>
+    <ul>
+        {% for key , value in friends.items() %}
+        <li>{{ key }} : {{value}}</li>
+        {% endfor %}
+    </ul>
+    <hr>
+
+    <h4>Looping through keys dictionary</h4>
+    <ul>
+        {% for key in friends.keys() %}
+        <li>{{ key }} </li>
+        {% endfor %}
+    </ul>
+    <hr>
+
+    <h4>Access List members</h4>
+    <p> {{ langs[0] }} </p>
+    <hr>
+
+    <h4>Access Dictionary members</h4>
+    <p> {{ friends["Ali"] }} </p>
+    <hr>
+
+    <h4>Access Class Attributes</h4>
+    <p> {{ my_remote.name }} </p>
+    <hr>
+
+    <h4>Unpack Variables</h4>
+    {% set a , b = colors %}
+    <!-- we are unpacking an iterator ,  now we can use these variables in this page     -->
+    <p>{{a}}</p> <!-- if we use set template in loop we can only use unpacked variables within that loop -->
+    <p>{{b}}</p>
+    <hr>
+
+    <h4>Calling Functions</h4>
+    <p>{{ repeat(2,3) }}</p> <!--  what the function return will embed in the HTML tag-->
+    <p>{{ repeat("Nouman ",3) }}</p>
+    <hr>
+
+    <h4>Calling class Methods</h4>
+    <p>{{ my_remote.clone(6) }}</p>
+    <p>{{ my_remote.clone("Nouman cloning") }}</p>
+    <hr>
+
+
+    <h4>Conditionals</h4>
+    {% if not bool_var %}
+    <p>Boolean is {{ bool_var}}</p>
+    {% endif %}
+    <hr>
+
+
+    <h4>Conditional if/elif</h4>
+    {% if my_age < 18 %} 
+    <p>No entry</p>
+    {% elif my_age <= 25 %} <p>You may enter</p>
+    {% else %}
+    <p>Entry denied. You're not cool enough</p>
+    {% endif %}
+    <hr>
+
+
+    <h4>Math operations</h4>
+    <p>{{ my_age / 6 }}</p>
+    <p>{{ my_age + 6 }}</p>
+    <hr>
+
+    <h4>Template Filters</h4>
+    <p>length of list: {{ langs | length }} </p>
+    <p>length of tuple: {{ colors | length }} </p>
+    <p>reverse the string: {{ var1 | reverse }} </p>
+    <p>Upper: {{ var1 | upper }} </p>
+    <hr>
+
+    <h4>Join Sequence filter</h4>
+    <p>Unjoined: {{ langs }}</p>
+    <p>Joined: {{ langs|join(", ") }}</p>
+    <!--join takes the separator (by default '')-->
+    <p>Joined: {{ langs|join("~ ") }}</p>
+    <p>Joined: {{ [1, 2, 3] |join('|') }}</p>
+    <p>Joined: {{ [1, 2, 3] | join }}</p>
+    <hr>
+
+    <h4>Custom filters</h4>
+    <p>{{ date }}</p>
+    <p>Using Custom Filer : {{ date | clean_date }}</p>
+    <hr>
+
+
+    <h4>Escaping</h4>
+    <p>{{ my_html }}</p>
+    <!-- by default it replace it as simple text string , prevent any hacking stuff -->
+    <p>{{ my_html | safe }}</p> <!--  embed HTML string into our html code (we use safe filter) -->
+    <hr> <!-- use safe filter carefully while using it with user input -->
+
+
+    <h4>Suspicious script</h4>
+    <!-- {{ suspicious|safe }} -->
+    <hr>
+
+
+    <h4>Macros</h4>
+    
+    {% macro input(label="", type="text", id="", name="", placeholder="") -%}
+    <div class="form-group">
+        <label>{{ label }}</label>
+        <input type="{{ type }}" class="form-control" id="{{ id }}" name="{{ name }}"
+            placeholder="{{ placeholder }}">
+    </div>
+    {%- endmacro %}
+
+    <form action="#" method="POST">
+         
+        {{ input(label="Name", id="name", name="name", placeholder="Enter your name") }}
+        <br>
+        {{ input(label="Email", type="email", id="email", name="email", placeholder="Enter your email")
+        }}
+        <br>
+        {{ input(label="Password", id="password", name="password", placeholder="Enter your password") }}
+        <br>
+        <button type="button">Submit</button>
+    </form>
+    <hr>
+
+
+
+
+</div>
+
+{% endblock %}

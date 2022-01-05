@@ -1,0 +1,33 @@
+https://www.digitalocean.com/community/tutorials/how-to-use-one-to-many-database-relationships-with-flask-and-sqlite
+
+
+Best for back ref and relationship
+https://www.programmersought.com/article/5539769070/
+
+
+best
+https://docs.sqlalchemy.org/en/14/orm/basic_relationships.html
+
+
+
+https://stackoverflow.com/questions/25375179/one-to-many-flask-sqlalchemy
+
+
+
+***************************************
+
+
+In one to many relationship
+
+
+tablee with many items , will have foreign key attribute
+
+class Parent(Base):
+    __tablename__ = 'parent'
+    id = Column(Integer, primary_key=True)
+    children = relationship("Child")
+
+class Child(Base):
+    __tablename__ = 'child'
+    id = Column(Integer, primary_key=True)
+    parent_id = Column(Integer, ForeignKey('parent.id'))

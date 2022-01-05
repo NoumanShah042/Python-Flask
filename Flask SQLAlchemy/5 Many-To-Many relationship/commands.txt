@@ -1,0 +1,71 @@
+ python
+
+>>> from many_to_many import *
+>>> db.create_all()                       
+
+****************************************
+
+> from many_to_many import *
+
+
+>>> user1=User(name='Nouman')
+>>> user2=User(name='Farhan')
+>>> user3=User(name='ALi')
+>>> user4=User(name='Humza')
+>>> db.session.add(user1)
+>>> db.session.add(user2)
+>>> db.session.add(user3)
+>>> db.session.add(user4)
+>>> db.session.commit() 
+
+
+***************************************
+
+
+>>> channel1=Channel(channel_name='Madni Chanel')
+>>> channel2=Channel(channel_name='Hum TV')
+>>> db.session.add(channel1)
+>>> db.session.add(channel2)
+>>> db.session.commit()
+>>>        
+
+***************************************
+                                                                                                                                                                     
+//  add  subscribers to a channel
+
+>>> channel1.subscribers.append(user3)
+>>> channel1.subscribers.append(user1)
+>>> channel1.subscribers.append(user4)
+>>> channel2.subscribers.append(user2)
+>>> channel2.subscribers.append(user4)
+>>> db.session.commit()
+>>>                             
+
+we can also use extend method at once:
+
+ 
+>>> channel.subscribers.extend([user1 , user2 , user3])
+>>> db.session.commit()
+
+
+
+>>> for user in channel1.subscribers:
+...     print(user.name)
+...
+ALi
+Nouman
+Humza
+>>>              
+
+
+
+***************************************
+
+// subscribe channel by the user
+
+>>> user1 = User.query.filter_by(user_id=1).first()
+>>> user1.subscriptions
+[<Channel 1>]
+>>> channel = Channel.query.filter_by(channel_id=2).first()
+>>> user1.subscriptions.append(channel)
+>>> db.session.commit()                                               

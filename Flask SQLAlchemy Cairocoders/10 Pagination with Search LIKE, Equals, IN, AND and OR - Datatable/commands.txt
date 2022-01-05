@@ -1,0 +1,33 @@
+https://tutorial101.blogspot.com/2020/03/python-flask-sqlalchemy-search-like.html
+
+Python Flask SQLAlchemy Pagination with Search LIKE, Equals, IN, AND and OR - Datatable
+
+LIKE: query.filter(User.name.like('%ednalan%'))
+equals: query.filter(User.name == 'ednalan')
+IN: query.filter(User.name.in_(['rai', 'kenshin', 'Ednalan']))
+AND: query.filter(User.name == 'ednalan', User.fullname == 'clyde ednalan')
+OR: from sqlalchemy import or_ 
+filter(or_(User.name == 'ednalan', User.name == 'caite'))
+
+
+>>> emp =Employees(  fullname='farhan', position='empn', office='office', age=23, startdate='date', salary='2322')
+>>> emp2 =Employees(  fullname='farhan', position='empn', office='office', age=23, startdate='date', salary='2322')
+>>> emp3 =Employees(  fullname='farhan', position='empn', office='office', age=23, startdate='date', salary='2322')
+>>> emp2 =Employees(  fullname='farhan', position='empn', office='office', age=23, startdate='date', salary='2322')
+>>> db.session.add(emp)
+>>> db.session.add(emp2)
+>>> db.session.add(emp3)
+>>> db.session.commit()
+>>> db.session.commit()
+
+
+
+emp =Employees(  fullname='ali', position='empn', office='office', age=23, startdate='date', salary='2322')
+emp2 =Employees(  fullname='f', position='empn', office='office', age=23, startdate='date', salary='2322')
+emp3 =Employees(  fullname='g', position='empn', office='office', age=23, startdate='date', salary='2322')
+emp4 =Employees(  fullname='faan', position='empn', office='office', age=23, startdate='date', salary='2322')
+>>> db.session.add(emp)
+>>> db.session.add(emp2)
+>>> db.session.add(emp3)
+>>> db.session.add(emp4)
+>>> db.session.commit()

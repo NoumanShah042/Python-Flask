@@ -1,0 +1,9 @@
+user= User(username='Nouman', email='nouman@gmail.com',fullname="Nouman",password_hash='pbkdf2:sha256:150000$9HbRq0JL4f3da481e291ef4342e39c827b8a0c0c56e8d23855521293b9fa1c7ad40d2ab5')
+
+
+>>> generate_password_hash('1234')
+'pbkdf2:sha256:150000$9HbRq0JL$4f3da481e291ef4342e39c827b8a0c0c56e8d23855521293b9fa1c7ad40d2ab5'
+
+
+nouman@gmail.com
+1234

@@ -1,0 +1,17 @@
+Visual Studio Code and Jinja templates
+https://stackoverflow.com/questions/60175608/visual-studio-code-and-jinja-templates
+
+14
+
+I also had a similar problem and this is what I did to fix it :
+
+Install the Better Jinja plugin. (https://marketplace.visualstudio.com/items?itemName=samuelcolvin.jinjahtml)
+
+This will allow you to change the file association from plain "HTML" to "jinja-html" (it's on the lower right part of my vscode screen), and this will stop jinja codes from sticking to one another on save.
+At this stage your intellisense will not work anymore, causing a lot of annoyance, so :
+Go to preferences >> settings >> type "file associations" in the search settings bar, click on "edit settings.json"
+
+Finally add the following line to the settings.json file :
+
+"emmet.includeLanguages": {"jinja-html": "html"},
+Restart your vscode. Every time you open an html file with jinja templating codes, as long as jinja-html is selected (not HTML!), prettify won't mess it up, and your intellisense should be working just fine. :)

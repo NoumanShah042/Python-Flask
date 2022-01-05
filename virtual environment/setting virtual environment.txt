@@ -1,0 +1,71 @@
+pip install virtualenv
+
+1) virtualenv env   (create a new born environment )
+
+   virtualenv --system-site-packages env2 (create environment with all the packages installed in the outer environment in python )
+
+
+2) set-executionpolicy unrestricted   (in admin mode of powershell)
+
+
+3) .\env\Scripts\activate.ps1
+
+{
+
+	for activating using Git bash:
+	On Windows10, you could go in the directory of your virtualenv where the Scripts folder is placed then enter the below command
+
+	source ./Scripts/activate
+
+}
+
+
+4) 
+
+{
+
+ pip install flask
+ pip install gunicorn      (for making req.txt file)
+
+
+ python run.py
+
+}
+
+{
+
+	Better way of runing Flask  is to run by setting environment variable  on git bash terminal:  
+	(https://flask.palletsprojects.com/en/1.1.x/quickstart/       # see this for using on diff plateforms )
+
+	export FLASK_APP=run.py       (don't use space with =)
+	export FLASK_ENV=development
+	flask run   			(  this will execute your run.py file )
+
+}
+
+{
+	On powershell :
+
+       set FLASK_APP=run.py
+       set FLASK_ENV=development
+       flask run
+}
+
+
+
+5) pip freeze > requirement.txt   (make requirements.txt file)
+6) pip install -r .\requirements.txt    (install all modules in the requirements.txt )
+
+
+deactivate
+*******************************
+
+
+source env/bin/activate
+
+pip list
+
+pip install --upgrade pip
+
+clear
+

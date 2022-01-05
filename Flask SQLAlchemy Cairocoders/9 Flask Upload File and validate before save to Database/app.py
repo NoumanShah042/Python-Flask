@@ -1,0 +1,60 @@
+from flask import Flask, render_template, flash, redirect, url_for, request
+from flask_sqlalchemy import SQLAlchemy
+from werkzeug.utils import secure_filename
+import os
+# import magic
+import urllib.request
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
+app.config['SECRET_KEY'] = 'cairocoders-ednalan'
+
+# UPLOAD_FOLDER = 'C:/flaskmyproject/demoapp/static'
+UPLOAD_FOLDER = 'C:/Users/Syed Numan Rehman/Desktop/GeneralApp/static'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+db = SQLAlchemy(app)
+
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(120), index=True, unique=True)
+    email = db.Column(db.String(120), index=True, unique=True)
+    profile_pic = db.Column(db.String(150))
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
+@app.route('/upload', methods=['POST'])
+def upload():
+    file = request.files['inputFile']
+    rs_username = request.form['txtusername']
+    email = request.form['email']
+    filename = secure_filename(file.filename)
+
+    if file and allowed_file(file.filename):
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
+        newFile = User(profile_pic=file.filename, username=rs_username, email=email)
+        db.session.add(newFile)
+        db.session.commit()
+        flash('File successfully uploaded ' + file.filename + ' to the database!')
+        return redirect('/')
+    else:
+        flash('Invalid Uplaod only txt, pdf, png, jpg, jpeg, gif')
+    return redirect('/')
+
+
+if __name__ == '__main__':
+    app.run(debug=True)

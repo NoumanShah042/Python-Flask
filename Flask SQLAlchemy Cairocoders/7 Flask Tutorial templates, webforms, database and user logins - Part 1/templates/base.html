@@ -1,0 +1,33 @@
+<html>
+<head>
+    {% if title %}
+        <title>{{ title }} - blog</title>
+    {% else %}
+        <title>Welcome to blog</title>
+    {% endif %}
+</head>
+<body>
+<header>
+    Blog:
+    <a href="{{ url_for('index') }}">Home</a>
+    {% if current_user.is_anonymous %}
+        <a href="{{ url_for('login') }}">Login</a>
+    {% else %}
+        <a href="{{ url_for('logout') }}">Logout</a>
+    {% endif %}
+</header>
+<hr>
+    <p>Flask Tutorial templates, webforms, database and user logins - Part 1</p>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+{% block content %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %} </title>
+</head>
+<body>
+    {% if marks>70 %}
+            <h1> Your result is Excellent!</h1>
+    {% elif marks>50 %}
+        <h1> Your result is pass!</h1>
+
+    {% else %}
+        <h1> Your result is fail</h1>
+    {% endif %}
+</body>
+</html>

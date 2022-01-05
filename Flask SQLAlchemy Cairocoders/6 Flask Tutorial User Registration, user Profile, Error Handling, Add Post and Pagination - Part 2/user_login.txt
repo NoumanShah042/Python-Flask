@@ -1,0 +1,91 @@
+https://flask-login.readthedocs.io/en/latest/
+
+******************************************************
+
+The class that you use to represent users needs to implement these properties and methods:
+
+is_authenticated
+
+This property should return True if the user is authenticated, i.e. they have provided valid credentials. (Only authenticated users will fulfill the criteria of login_required.)
+
+is_active
+
+This property should return True if this is an active user - in addition to being authenticated, they also have activated their account, not been suspended, or any condition your application has for rejecting an account. Inactive accounts may not log in (without being forced of course).
+
+
+is_anonymous
+
+This property should return True if this is an anonymous user. (Actual users should return False instead.)
+
+get_id()
+
+This method must return a unicode that uniquely identifies this user, and can be used to load the user from the user_loader callback. Note that this must be a unicode - if the ID is natively an int or some other type, you will need to convert it to unicode.
+
+
+To make implementing a user class easier, you can inherit from UserMixin, 
+which provides default implementations for all of these properties and methods. (It’s not required, though.)
+
+
+******************************************************
+for Flask-Login  to work
+You will need to provide a user_loader callback. This callback is used to reload the user object from the user ID stored in the session. It should take the unicode ID of a user, and return the corresponding user object. For example:
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.get(user_id)
+
+
+It should return None (not raise an exception) if the ID is not valid. (In that case, the ID will manually be removed from the session and processing will continue.)
+
+******************************************************
+
+login_user
+
+Once a user has authenticated, you log them in with the login_user function.
+
+flask_login.login_user(user, remember=False, duration=None, force=False, fresh=True) 
+
+Parameters:	
+user (object) – The user object to log in.
+remember (bool) – Whether to remember the user after their session expires. Defaults to False.
+duration (datetime.timedelta) – The amount of time before the remember cookie expires. If None the value set in the settings is used. Defaults to None.
+force (bool) – If the user is inactive, setting this to True will log them in regardless. Defaults to False.
+fresh (bool) – setting this to False will log in the user with a session marked as not “fresh”. Defaults to True.
+
+******************************************************
+
+current_user
+
+You can then access the logged-in user with the current_user proxy, which is available in every template:
+
+{% if current_user.is_authenticated %}
+  Hi {{ current_user.name }}!
+{% endif %}
+
+
+******************************************************
+
+Protecting Views  (  @login_required  )
+
+flask_login.login_required(func) 
+If you decorate a view with this, it will ensure that the current user is logged in and authenticated before calling the actual view. (If they are not, it calls the LoginManager.unauthorized callback.) For example:
+
+@app.route('/post')
+@login_required
+def post():
+    pass
+
+******************************************************
+
+user= User(username='Nouman', email='nouman@gmail.com', password_hash='pbkdf2:sha256:150000$9HbRq0JL$4f3da481e291ef4342e39c827b8a0c0c56e8d23855521293b9fa1c7ad40d2ab5')
+
+>>> generate_password_hash('1234')
+'pbkdf2:sha256:150000$9HbRq0JL$4f3da481e291ef4342e39c827b8a0c0c56e8d23855521293b9fa1c7ad40d2ab5'
+>>>
+check_password_hash('1234')
+
+check_password_hash('pbkdf2:sha256:150000$9HbRq0JL$4f3da481e291ef4342e39c827b8a0c0c56e8d23855521293b9fa1c7ad40d2ab5','1234')
+
+
+Nouman Farhan 
+1234

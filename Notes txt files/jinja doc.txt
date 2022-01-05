@@ -1,0 +1,30 @@
+https://jinja.palletsprojects.com/en/2.10.x/templates/#variables  (old version)
+
+https://flask.palletsprojects.com/en/1.1.x/
+
+https://flask-sqlalchemy.palletsprojects.com/en/2.x/
+
+
+
+use # in url before topic to jump to specific topic
+
+https://jinja.palletsprojects.com/en/2.11.x/templates/   (latest version  20021)
+
+
+****************************************
+
+
+Jinja2 has no support for comments within a {{ ... }} statement. 
+You can only use comments outside of such statements, and then only with {# .. #} or ## comment.
+
+
+* 	 {# .. #} is only meant for disabling part of a template or adding comments outside of other Jinja2 syntax. You can't nest these.
+
+* 	# statement is the equivalent of {% statement %}, if line statements are enabled and so configured.
+
+* 	## comment only works if line statements are enabled, at which point it regarded as a comment.
+
+Generally, outside of Jinja statements, use comments in the target language instead; e.g. <!-- comment --> when generating XML, etc.
+
+
+****************************************

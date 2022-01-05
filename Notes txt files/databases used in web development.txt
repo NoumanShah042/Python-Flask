@@ -1,0 +1,120 @@
+different  database used in web development
+
+
+Microsoft SQL Server
+Oracle SQL
+Microsoft Access
+MySQL
+Mongo DB
+SQLite
+PostgreSQL
+SAP HANA
+Elasticsearch
+IBM DB2
+SQL
+ClusterControl
+CouchDB
+MariaDB
+Redis
+
+
+Microsoft SQL Server
+The latest version of this database is the Microsoft SQL server 2019. The database supports SQL language and is written in C and C++. This is a widely used Relational database released in 1989. It can work on Windows and Linux. Different versions available are Azure SQL, enterprise edition, and Compact edition. Few other features are:
+
+Performance enriched
+Easy integration with Hadoop
+Makes use of data compression technique
+Graphic integration
+Platform dependent
+High security
+Workload management
+Object Explore
+
+
+
+
+
+Oracle SQL
+This database is written in C, C++, and Java which are assembly languages. It is a very popular database. This is a well-documented secure database for web development that uses less storage space. The new version of this database is 19c but in few companies, the older version 11g, and 12c are used. The database is quite powerful as it processes data at a faster rate. Few other features are as follows:
+
+Database security, high availability, and performance
+Supports SQL and JSON
+Easy to use and robust
+Provides PDF storage, key-value storage, and cloud functionality
+Supports multiple platforms
+
+
+
+Microsoft Access
+This is a paid database for web development or you can have a trial version for 60 days. It is quite similar to MySQL. It provides a complete package that has a DBMS and a design tool. This database doesn’t support flexibility. With help of this database, you can design tables and can check the syntax later which will be created automatically.  It is useful only for websites which have low traffic. You can make use of it for learning purposes. Few other properties of it are:
+Needs one installation for both DBMS and design
+Provides a combination of Microsoft Jet database to GUI and software development tools
+Compatible with circumscribed windows
+
+
+MySQL
+This database uses SQL for data processing. It is a relational database management system that is open source. This database is written in C and C++ languages. Many big companies like Facebook, Adobe, and Google make use of this database. Nowadays MySQL 8.0 is in use. This database is now under Sun Microsystems acquisition. Few other features of it are:
+
+Option of recovery
+Different editions are available like free and commercial
+Supports other languages like Perl, Python, and PHP
+Provides database size having approximately 50 million rows
+Run-on FreeBSD and Solaris also
+Supports Intuitive Graphical interface
+Provides security, flexibility, and reliabil
+
+
+
+Mongo DB
+This database can be used for applications that are mobile-based. You can use this database for analytics and IoT purposes. It is a cross-platform database written in the C++ language. It supports real-time database views. The data stored in this database is of JSON format which enhances the speed of Mongo DB. It is NoSQL which makes use of internal memory. This database handles data in large amounts and provides high performance. It keeps data structure simple and data retrieval is efficient. The other features of it are:
+
+Easy query optimization
+Simpler Failure Administration
+Compatible with JSON
+Supports various languages like Scala, Java, and Groovy
+Used for data and item storage
+Provides auto sharding, flexibility, and scalability
+ 
+
+
+SQLite
+This database is self-contained and not uses the server. The database is featured and mostly used database engine. This database doesn’t require setup or administration at all. It uses a single disk file for a complete database. The database is made in C language. It is a widely used database in mobile phones. This database can handle the size up to 1 TB. Few other features are:
+
+Supports Zero configurations
+Provides no external dependencies
+Supportive for WinCE
+Highly reliable and fast
+Used to transfer content
+Its source code is available free
+
+
+
+PostgreSQL
+This database is made in C language. Users make use of this database for the NoSQL database it is a very popular open-source database that is object-relational. The database is suitable for large amounts of data. It is used for apps related to gaming, registries of the domain, and automation tools. It is platform-independent. Apple, Skype, and Cisco use this database for web development frequently. It maintains data integrity and high scalability. This database can interact with multiple servers and provides data that is also portable. It makes use of tablespaces and joins.  Several other features are:
+
+Better for single-machine applications
+Provides broader functionality
+Helpful in making a fault-tolerant system
+Provides data protection
+Supports JSON
+Enhanced security and recovery mechanism
+Custom query methods and data types
+Provides robustness and Quick response
+
+
+Redis
+It is a faster NoSQL database. It uses key-value pairs and simpler as compared to MongoDB. The database is used for the storage of sessions, transactions, and chat. This data model is an open-source and in-memory database. It supports high durability and cluster. Other features of it are:
+
+Fast
+Non-volatile
+High availability
+Can be used as cache and message broker
+Supports strings, lists, sets, and hashes
+
+
+
+Conclusion
+The use of database for web development isn’t difficult. There are many free databases available to use. It means for beginners it is very simple to use databases if they can understand them from tutorials available on the internet.
+
+Which database you should use? – An opinion
+Before deciding to choose any database for web development you have to think about why you need that database. Here are a lot of databases available which are having their own features but you have to make the right decision in order to choose them. So I am trying to give my opinion about them. I hope you will find the database that you need for your web development from the above-mentioned list. If you are just learning SQL for academic purposes try to use simple DBMS. In case you are making a website using PHP and ASP.net you can use Microsoft SQL server for Asp.net and MySQL for PHP. You can also use Microsoft access for ASP.net and Oracle for PHP but java developers prefer DB2

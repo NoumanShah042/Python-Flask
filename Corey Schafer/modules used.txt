@@ -1,0 +1,33 @@
+Remember Me:
+Some web applications may need a "Remember Me" functionality. This means that, after a user login, user will have access from same machine to all its data even after session expired. This access will be possible until user does a logout.
+
+
+
+
+****************************************************
+
+
+
+request.path is not what you're looking for. It returns the actual path of the URL. So, if your URL is /a/?b=c, then request.path returns /a, not c as you are expecting.
+
+The next parameter is after the ? in the URL, thus it is part of the "query string". Flask has already parsed out items in the query string for you, and you can retrieve these values by using request.args. If you sent a request to the URL /a/?b=c and did request.args.get('b'), you would receive "c".
+
+So, you want to use request.args.get('next'). The documentation shows how this works in an example.
+
+
+
+**********************************************************
+
+
+Image processing in python ( Pillow )
+
+
+If you want to resize images and keep their aspect ratios, then you should instead use the thumbnail() function to resize them. This also takes a two-integer tuple argument representing the maximum width and maximum height of the thumbnail.
+
+image = Image.open('demo_image.jpg')
+image.thumbnail((400, 400))
+image.save('image_thumbnail.jpg')
+
+print(image.size) # Output: (400, 267)
+
+

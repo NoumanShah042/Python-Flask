@@ -1,0 +1,22 @@
+pip install virtualenv
+
+
+virtualenv env           --- create virtual environment with name env
+
+Set-ExecutionPolicy unrestricted  (  use powershell admin)
+
+.\env\Scripts\activate.ps1          --  activate environment
+
+pip install flask
+
+python .\app.py
+
+
+pip install flask-sqlalchemy
+
+pip install gunicorn
+
+pip freeze > requirements.txt       ---  make req file 
+
+pip install -r requirements.txt     --- install all packages mentioned in file
+

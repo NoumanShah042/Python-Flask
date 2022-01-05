@@ -1,0 +1,19 @@
+<h4>Macros</h4>
+<hr>
+
+{% macro input(label="", type="text", id="", name="", placeholder="") -%}
+  <div class="form-group">
+    <label>{{ label }}</label>
+    <input type="{{ type }}" class="form-control" id="{{ id }}" name="{{ name }}" placeholder="{{ placeholder }}">
+  </div>
+{%- endmacro %}
+
+<form action="#" method="POST">
+
+    {{ input(label="Name", id="name", name="name", placeholder="Enter your name") }}
+
+    {{ input(label="Email", type="email", id="email", name="email", placeholder="Enter your email") }}
+
+    {{ input(label="Password", id="password", name="password", placeholder="Enter your password") }}
+
+</form>

@@ -1,0 +1,26 @@
+select person.name , pet.name 
+from person  join pet 
+on person.id = pet.owner_id
+
+
+result = db.engine.execute('select person.name , pet.name from person  join pet on person.id = pet.owner_id')
+
+>>> for r in result:
+...      print(r[0], r[1])
+...
+Nouman spot
+Farhan dog
+Nouman cat
+Nouman tiger
+Farhan deer
+>>>
+
+
+
+>>> for r in result:
+...      print(r[0], r[1])
+...
+nouman cat
+farhan dog
+shah fish
+>>>

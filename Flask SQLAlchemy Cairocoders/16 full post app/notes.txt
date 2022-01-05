@@ -1,0 +1,91 @@
+Python Flask Blog with Admin using flask_sqlalchemy, flask_login, flask_bcrypt and flask_msearch
+
+-- Table: user
+CREATE TABLE user (
+    id       INTEGER       NOT NULL,
+    name     VARCHAR (80)  NOT NULL,
+    username VARCHAR (80)  NOT NULL,
+    email    VARCHAR (120) NOT NULL,
+    password VARCHAR (200) NOT NULL,
+    profile  VARCHAR (180),
+    PRIMARY KEY (
+        id
+    ),
+    UNIQUE (
+        username
+    ),
+    UNIQUE (
+        email
+    )
+);
+
+INSERT INTO user (id, name, username, email, password, profile) VALUES (3, 'admin', 'admin', 'cairocoders@gmail.com', X'243262243132244A4A757A326B696734342E6835706B4A43303533382E6D315A53687369393631505278526A4D5767373337746939526372314C3761', 'profile.jpg');
+
+-- Table: post
+CREATE TABLE post (
+    id       INTEGER       NOT NULL,
+    title    VARCHAR (200) NOT NULL,
+    slug     VARCHAR (200) NOT NULL,
+    body     TEXT          NOT NULL,
+    category VARCHAR (100) NOT NULL,
+    image    VARCHAR (150) NOT NULL,
+    user_id  INTEGER       NOT NULL,
+    views    INTEGER,
+    comments INTEGER,
+    feature  VARCHAR       NOT NULL,
+    date_pub DATETIME      NOT NULL,
+    PRIMARY KEY (
+        id
+    ),
+    UNIQUE (
+        title
+    ),
+    UNIQUE (
+        slug
+    ),
+    FOREIGN KEY (
+        user_id
+    )
+    REFERENCES user (id) ON DELETE CASCADE
+);
+
+-- Table: comments
+CREATE TABLE comments (
+    id       INTEGER       NOT NULL,
+    name     VARCHAR (200) NOT NULL,
+    email    VARCHAR (200) NOT NULL,
+    message  TEXT          NOT NULL,
+    post_id  INTEGER       NOT NULL,
+    feature  BOOLEAN       NOT NULL,
+    date_pub DATETIME      NOT NULL,
+    PRIMARY KEY (
+        id
+    ),
+    FOREIGN KEY (
+        post_id
+    )
+    REFERENCES post (id) ON DELETE CASCADE,
+    CHECK (feature IN (0, 1) ) 
+);
+
+URL
+http://127.0.0.1:5000/login
+Username : admin
+password : cairocoders
+
+http://127.0.0.1:5000/signup
+http://127.0.0.1:5000/admin
+http://127.0.0.1:5000/addpost
+http://127.0.0.1:5000/update/3
+http://127.0.0.1:5000/comments/
+http://127.0.0.1:5000/search?q=python
+http://127.0.0.1:5000/news/7-essential-vs-code-extensions-for-python-developers-in-2021
+
+pip install Flask-Bcrypt = https://pypi.org/project/Flask-Bcrypt/
+pip install Flask-Login = https://pypi.org/project/Flask-Login/
+pip install flask-msearch = https://pypi.org/project/flask-msearch/
+pip install Flask-SQLAlchemy = https://pypi.org/project/Flask-SQLAlchemy/
+pip install slugify
+
+
+templates : https://colorlib.com/wp/template/force/

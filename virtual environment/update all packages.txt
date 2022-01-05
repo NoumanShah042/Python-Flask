@@ -1,0 +1,34 @@
+https://www.activestate.com/resources/quick-reads/how-to-update-all-python-packages/
+
+
+
+Python Package Upgrade Checklist
+In general, you can use the following steps to perform a package upgrade:
+
+1. Check that Python is installed
+
+Before packages can be updated, ensure that a Python installation containing the necessary files needed for updating packages is in place by following the steps outlined in <Installation Requirements>
+
+2. Get a list of all the outdated packages
+
+To generate a list of all outdated packages:
+
+pip list --outdated
+
+
+
+ 
+*************************************
+
+3. Upgrade outdated packages
+
+Update All Python Packages On Windows
+
+The easiest way to update all packages in a Windows environment is to use pip in conjunction with Windows PowerShell: 
+
+Open a command shell by typing ‘powershell’ in the Search Box of the Task bar
+Enter:
+pip freeze | %{$_.split('==')[0]} | %{pip install --upgrade $_}
+This will upgrade all packages system-wide to the latest version available in the Python Package Index (PyPI).
+
+

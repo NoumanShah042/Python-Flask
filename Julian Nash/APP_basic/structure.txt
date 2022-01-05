@@ -1,0 +1,62 @@
+├── app
+│   ├── __init__.py
+│   ├── admin_views.py
+│   ├── templates
+│   │   └── index.html
+│   └── views.py
+├── requirements.txt
+└── run.py
+
+
+
+.
+├── app
+│   ├── __init__.py
+│   ├── admin_views.py
+│   ├── templates
+│   │   ├── admin
+│   │   │   └── dashboard.html
+│   │   └── public
+│   │       └── index.html
+│   └── views.py
+├── requirements.txt
+└── run.py
+
+
+app
+├── app
+│   ├── __init__.py
+│   ├── admin_views.py
+│   ├── static
+│   │   └── css
+│   │       └── style.css
+│   ├── templates
+│   │   ├── admin
+│   │   │   └── dashboard.html
+│   │   └── public
+│   │       └── index.html
+│   └── views.py
+├── requirements.txt
+└── run.py
+
+
+
+app
+├── app
+│   ├── __init__.py
+│   ├── admin_views.py
+│   ├── static
+│   │   ├── css
+│   │   │   └── style.css
+│   │   ├── img
+│   │   │   └── my-image.png
+│   │   └── js
+│   │       └── app.js
+│   ├── templates
+│   │   ├── admin
+│   │   │   └── dashboard.html
+│   │   └── public
+│   │       └── index.html
+│   └── views.py
+├── requirements.txt
+└── run.py

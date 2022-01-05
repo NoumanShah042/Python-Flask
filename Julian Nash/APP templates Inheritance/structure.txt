@@ -1,0 +1,35 @@
+app
+├── app
+│   ├── __init__.py
+│   ├── admin_views.py
+│   ├── static
+│   │   ├── css
+│   │   │   └── style.css
+│   │   ├── img
+│   │   │   └── flask.png
+│   │   └── js
+│   │       └── app.js
+│   ├── templates
+│   │   ├── admin
+│   │   │   ├── dashboard.html
+│   │   │   └── templates
+│   │   │       └── admin_template.html
+│   │   └── public
+│   │       ├── index.html
+│   │       └── templates
+│   │           └── public_template.html
+│   └── views.py
+├── requirements.txt
+└── run.py
+
+C:\Users\Syed Numan Rehman\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\__init__.py
+C:\Users\Syed Numan Rehman\AppData
+
+Our base classes
+admin_template.html
+public_template.html
+
+
+Theses files inherit above files 
+index.html
+dashboard.html

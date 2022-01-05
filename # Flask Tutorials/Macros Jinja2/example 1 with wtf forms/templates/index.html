@@ -1,0 +1,73 @@
+{% from 'field_macro.html' import displayField %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <h2>Get started!</h2>
+    <p>First time here? Register to start using Rchat</p>
+
+    <form action="{{ url_for('index') }}" , method="POST">
+        <!--  macro displayField(field, fieldName)   -->
+        {{ displayField(form.username, 'Username', autocomplete="off", autofocus=true) }}
+        {{ displayField(form.password, 'Password') }}
+        {{ displayField(form.confirm_pswd, 'Retype Password') }}
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-warning">
+        </div>
+        {{ form.csrf_token }}
+    </form>
+
+    <hr>
+</body>
+
+</html>
+
+<!-- 
+
+Macros provide a way to modularize that code; they work like functions. 
+We can implement DRY (Don't Repeat Yourself) principles in our templates by 
+abstracting snippets of code that appear over and over into macros.
+
+look at below code , 90% of the code is same. 
+only diff is the attribue and form_field name, 
+we can pass them as attributes, and additional fields can be passed as key value pairs, 
+and can be access in macro using simple  **kwargs 
+
+<div class="form-group">
+    {{ form.username(class_='form-control', placeholder='Username', autocomplete="off", autofocus=true) }}
+     
+    <ul class="formError">
+        {% for error in form.username.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+</div>
+<div class="form-group">
+    {{ form.password(class_='form-control', placeholder='Password') }}
+    
+    <ul class="formError">
+        {% for error in form.password.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="form-group">
+    {{ form.confirm_pswd(class_='form-control', placeholder='Retype Password') }}
+     
+    <ul class="formError">
+        {% for error in form.confirm_pswd.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+</div>
+ -->

@@ -1,0 +1,9 @@
+from flaskblog import db
+from flaskblog.models import User 
+user = User.query.first()
+user
+
+
+
+
+ 

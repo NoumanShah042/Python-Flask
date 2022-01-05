@@ -1,0 +1,5 @@
+https://www.youtube.com/watch?v=hkL9pgCJPNk
+
+https://flask-sqlalchemy.palletsprojects.com/en/2.x/api/#flask.ext.sqlalchemy.Pagination
+
+https://flask-sqlalchemy.palletsprojects.com/en/2.x/api/#flask.ext.sqlalchemy.BaseQuery.paginate

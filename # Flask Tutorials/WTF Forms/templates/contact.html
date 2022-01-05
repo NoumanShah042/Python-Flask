@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+<body>
+<h2 style="text-align: center;">Registration Form</h2>
+
+<form method="POST" action="">
+    {{ form.hidden_tag() }}  <!-- just add it , its a part or secret key protection-->
+
+    <div>
+        {{ form.username.label }}
+        {% if form.username.errors %}
+            {{ form.username }}
+            <div>
+                {% for error in form.username.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.username }}
+        {% endif %}
+    </div>
+    <br>
+
+    <div>
+        {{ form.email.label }}
+        {% if form.email.errors %}
+            {{ form.email }}
+            <div>
+                {% for error in form.email.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.email }}
+        {% endif %}
+    </div>
+    <br>
+
+    <div>
+        {{ form.gender.label }}
+        {% if form.gender.errors %}
+            {{ form.gender }}
+            <div>
+                {% for error in form.gender.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.gender }}
+        {% endif %}
+    </div>
+    <br>
+
+    <div>
+        {{ form.language.label }}
+        {% if form.language.errors %}
+            {{ form.language }}
+            <div>
+                {% for error in form.language.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.language }}
+        {% endif %}
+    </div>
+    <br>
+
+    <div>
+        {{ form.password.label }}
+        {% if form.password.errors %}
+            {{ form.password }}
+            <div>
+                {% for error in form.password.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.password }}
+        {% endif %}
+    </div>
+    <br>
+
+    <div>
+        {{ form.confirm_password.label }}
+        {% if form.confirm_password.errors %}
+            {{ form.confirm_password }}
+            <div>
+                {% for error in form.confirm_password.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.confirm_password }}
+        {% endif %}
+    </div>
+
+
+    <br>
+
+    <div>
+        {{ form.submit }}
+    </div>
+</form>
+
+
+</body>
+</html>
+
+
+{#
+<!doctype html>
+<html>
+   <body>
+      <h2 style = "text-align: center;">Registration Form</h2>
+
+      {% for message in form.name.errors %}
+         <div>{{ message }}</div>
+      {% endfor %}
+
+      {% for message in form.email.errors %}
+         <div>{{ message }}</div>
+      {% endfor %}
+
+      <form action = "http://127.0.0.1:5000/success" method = "POST">
+
+            {{ form.hidden_tag() }}
+
+            <div style = "font-size:18px;" font-weight:bold; margin-left:150px;>
+               {{ form.name.label }}<br>
+               {{ form.name }}
+               <br>
+               {{ form.Gender.label }} {{ form.Gender }}
+               {{ form.Address.label }}<br>
+               {{ form.Address }}
+               <br>
+               {{ form.email.label }}<br>
+               {{ form.email }}
+               <br>
+               {{ form.Age.label }}<br>
+               {{ form.Age }}
+               <br>
+               {{ form.language.label}}<br><br>
+               {{ form.language }}
+               <br><br>
+               {{ form.submit }}
+            </div>
+
+         </fieldset>
+      </form>
+   </body>
+</html>
+
+
+#}

@@ -1,0 +1,47 @@
+By default, flask use a "templates" folder to contain all your template files(any plain-text file, but usually .html or some kind of template language such as jinja2 ) & a "static" folder to contain all your static files(i.e. .js .css and your images).
+   In your routes, u can use render_template() to render a template file (as I say above, by default it is placed in the templates folder) as the response for your request. And in the template file (it's usually a .html-like file), u may use some .js and/or `.css' files, so I guess your question is how u link these static files to the current template file.
+
+
+
+A view function, or “view” for short, is simply a Python function that takes a web request and returns a web response. This response can be the HTML contents of a Web page, or a redirect, or a 404 error, or an XML document, or an image, etc.
+
+******************************************
+
+Flask will look in the templates directory (It's the default place Flask will go to look for HTML files when the render_template function is called)
+
+
+to extend any html file we also give path from the template folder
+
+{% extends "public/templates/public_template.html" %}
+
+app
+├── app
+│   ├── __init__.py
+│   ├── admin_views.py
+│   ├── static
+│   │   ├── css
+│   │   │   └── style.css
+│   │   ├── img
+│   │   │   └── flask.png
+│   │   └── js
+│   │       └── app.js
+│   ├── templates
+│   │   ├── admin
+│   │   │   ├── dashboard.html
+│   │   │   └── templates
+│   │   │       └── admin_template.html
+│   │   └── public
+│   │       ├── index.html
+│   │       └── templates
+│   │           └── public_template.html
+│   └── views.py
+├── requirements.txt
+└── run.py
+
+******************************************
+
+cookies on client side 
+
+session object  on server side
+
+

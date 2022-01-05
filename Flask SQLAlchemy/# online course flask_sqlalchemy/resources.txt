@@ -1,0 +1,8 @@
+https://flask-sqlalchemy.palletsprojects.com/en/2.x/models/#many-to-many-relationships
+
+sqlite> commands
+https://sqlite.org/cli.html
+
+filter commands
+https://flaskage.readthedocs.io/en/latest/index.html    main page
+https://flaskage.readthedocs.io/en/latest/database_queries.html#select-queries     queries

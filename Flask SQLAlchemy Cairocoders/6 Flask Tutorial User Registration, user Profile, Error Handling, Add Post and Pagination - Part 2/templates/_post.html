@@ -1,0 +1,8 @@
+<table class="table table-hover">
+    <tr valign="top">
+        <td width="36"><img src="{{ post.author.avatar(profilepics) }}" width="50"></td>
+        <td align="left"><a href="{{ url_for('user', username=post.author.username) }}">{{ post.author.username }}</a>
+            says:<br>{{ post.body }}</td>
+    </tr>
+</table>
+{# we in clude it in user.html #}

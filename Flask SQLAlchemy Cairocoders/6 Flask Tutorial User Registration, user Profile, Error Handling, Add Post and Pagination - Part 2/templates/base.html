@@ -1,0 +1,53 @@
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }} - blog</title>
+      {% else %}
+      <title>Welcome to blog</title>
+      {% endif %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Cairocoders Blog</a>
+    </div>
+    <ul class="nav navbar-nav">
+
+      <li class="active"><a href="{{ url_for('index') }}">Home</a></li>
+      <li><a href="{{ url_for('explore') }}">Post</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+ {% if current_user.is_anonymous %}
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="{{ url_for('login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+ {% else %}
+ <ul class="nav navbar-nav navbar-right">
+      <li><a href="{{ url_for('user', username=current_user.username) }}"> Profile</a></li>
+  <li><a href="{{ url_for('logout') }}"> Logout</a></li>
+ </ul>
+ {% endif %}
+  </div>
+</nav>
+
+<div class="container">
+<p>Flask Tutorial User Profile, Error Handling, Add Post and Pagination - Part 2</p>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+</div>
+</body>
+</html>

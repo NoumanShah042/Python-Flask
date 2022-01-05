@@ -1,0 +1,111 @@
+# Flask query strings - Python on the web - Learning Flask Series Pt. 11        ********************************
+
+# query string (set of key and value pairs like in https://www.google.com/search?q=quetry+string)
+
+# http://127.0.0.1:5000/query?foo=foo&bar=bar&baz=baz&title=query+strings+with+flask
+# ImmutableMultiDict([('foo', 'foo'), ('bar', 'bar'), ('baz', 'baz'), ('title', 'query strings with flask')])
+
+
+
+@app.route("/query")
+def query():
+
+    args = request.args  #  request.args has parsed our query string and conveniently converted
+                         #  it into an ImmutableMultiDict which we can treat just like a Python dictionary
+   
+    print(args)    
+    
+    # for k, v in args.items():    # we can iterate throught this dictionary
+    #     print(f"{k}: {v}")
+
+    if "foo" in args:
+        foo = args["foo"]
+
+    if "bar" in args:
+        bar = args.get("bar")
+
+    if "baz" in args:
+        baz = args["baz"]
+
+    if "title" in request.args:
+        title = request.args.get("title")
+
+    print(foo, bar, baz, title)
+
+    return "No query string received", 200
+
+
+
+******************
+
+@app.route("/query")
+def query():
+
+    args = request.args
+
+    if "foo" in args:
+        foo = args["foo"]
+
+    if "bar" in args:
+        bar = args.get("bar")
+
+    if "baz" in args:
+        baz = args["baz"]
+
+    if "title" in request.args:
+        title = request.args.get("title")
+
+    print(foo, bar, baz, title)
+
+    return "No query string received", 200
+
+****************
+
+@app.route("/query")
+def query():
+
+    if request.args:    # check if we received any query string or not
+
+        # We have our query string nicely serialized as a Python dictionary
+        args = request.args
+
+        # We'll create a string to display the parameters & values
+        serialized = ", ".join(f"{k}: {v}" for k, v in request.args.items())
+
+        # Display the query string to the client in a different format
+        return f"(Query) {serialized}", 200
+
+    else:
+
+        return "No query string received", 200 
+
+**********************************
+
+
+@app.route("/query")
+def query():
+
+    print(request.query_string)
+
+    return "Thanks", 200 
+
+
+
+***************************************
+
+@app.route("/query")
+def query():
+
+    print(request.values)
+
+    return "Thanks", 200 
+
+****************************************
+******************************
+
+
+Wrapping up
+Query strings are a convenient way to pass arguments to your application and Flask makes light work of quickly parsing them into something we can work with.
+
+POST requests don't typically include a query string as they tend to include data that you want to keep within the request body, so you'll mostly be using them with GET requests.
+***************************

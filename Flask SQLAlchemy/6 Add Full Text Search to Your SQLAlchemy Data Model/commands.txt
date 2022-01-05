@@ -1,0 +1,26 @@
+this technique can run for avery database sqlite , mysql etc
+
+
+******************************
+
+>>> r  = db.engine.execute('select user_id , name from user')
+>>> for i in r:
+...     i
+...
+(1, 'Nouman')
+(2, 'Farhan')
+(3, 'ALi')
+(4, 'Humza')
+>>>  
+
+******************************  
+
+>>>  r  = db.engine.execute('insert into user( user_id , name) values(6 , "haider")')
+>>>  db.session.commit()
+
+       
+******************************
+
+
+ 
+ 

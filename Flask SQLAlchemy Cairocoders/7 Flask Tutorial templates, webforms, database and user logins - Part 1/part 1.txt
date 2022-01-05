@@ -1,0 +1,19 @@
+In this tutorial, you are going to learn how to set up a Flask project.
+By the end of this chapter part 1 you are going to have a simple Flask web application login system
+
+below is a list.
+1. Templates
+ how to work with templates
+2. Web Forms
+ how to work with web forms
+ To handle the web forms in this application we will use the Flask-WTF extension
+ install Flask-WTF in your virtual environment:
+ (venv) $ pip install flask-wtf
+3. Database
+ how to work with databases.
+ To install Flask-SQLAlchemy in your virtual environment, make sure you have activated it first, and then run:
+ (venv) $ pip install flask-sqlalchemy
+4. User Logins
+ how to create a user login subsystem
+ install Flask-Login in your virtual environment:
+ (venv) $ pip install flask-login

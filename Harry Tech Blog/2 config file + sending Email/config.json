@@ -1,0 +1,14 @@
+{
+    "params": {
+        "local_server": "CodingThunder",
+        "local_uri": "mysql://root:@localhost/tech_blog",
+        "prod_uri": "mysql://root:@localhost/tech_blog",
+        "fb_url": "https://www.facebook.com/nouman.shah.378199/",
+        "tw_url": "https://twitter.com/NoumanS89222316",
+        "gh_url": "https://github.com/NoumanShah042",
+        "blog_name": "",
+        "gmail-user": "hello042hello@gmail.com",
+        "gmail-password": "Baghdad1"
+
+    }
+}

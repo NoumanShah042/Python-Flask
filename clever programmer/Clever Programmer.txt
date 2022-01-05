@@ -1,0 +1,60 @@
+Watch the FREE webinar training that shows you the Top 3 Secrets to Becoming a Python Freelancer... https://events.genndi.com/register/16...​
+
+Link to code version 1 (right before we add Boostrap): https://drive.google.com/file/d/1iia4...​
+
+Link to code version 2 (final version): https://drive.google.com/file/d/1g4jh...​
+
+TABLE OF CONTENTS 🔥... ENJOY 👇:
+5:00​ - Download Flask
+6:13​ - Basic Flask app
+9:29​ - Running our basic Flask app
+10:42​ - Handle multiple URL routes with one function (consolidate code)
+12:12​ - Advanced URL routing
+12:41​ - Passing parameters from a URL to our code (dynamic URLs)
+18:14​ - Limiting webpages to specific HTTP Request methods
+21:43​ - Adding a basic front end to our Flask app (html + templates)
+26:34​ - Template inheritance
+31:12​ - Passing data to our template from our code
+35:41​ - How to put code logic in our templates (to dynamically produce our front end): Jynga 2
+44:04​ - Static Files: Linking in our CSS style sheets to make our front end nicer
+46:01​ - Static Files: Linking in our Javascript files to make our front end more interesting
+46:29​ - A useful tool to easily link to any file in our Flask app directory - the url_for() function
+48:51​ - Databases: adding one to our Flask app (sqlalchemy)
+50:38​ - Specify our database type, name, and location
+53:28​ - Creating Flask models
+1:01:20​ - Construct our database
+1:02:54​ - CRUD: How to add to and read from our database
+1:08:17​ - Hooking up our database to our front end
+1:23:33​ - CRUD: How to delete and update from our database
+1:36:47​ - CRUD: Delete button and deleting from our database
+1:42:19​ - CRUD: Update button and updating our database
+1:55:48​ - Adding a beautiful front end: Adding Bootstrap to our Flask app
+1:58:55​ - Adding a collapsable nav bar (Bootstrap)
+2:04:23​ - Making our home page nicer (Bootstrap)
+2:09:31​ - Adding nicer buttons (Bootstrap)
+2:14:19​ - Adding in nicer input fields (Bootstrap)
+2:21:57​ - Rendering whitespace correctly in our blog posts
+2:28:31​ - Last touches to our app (front end Bootstrap and backend Flask)
+2:41:08​ - Final Blogging App
+
+Music Credit: Epidemic Sounds  (Artist - Dylan Sitts)
+
+Enroll for exercises, tutorials, courses, and projects...
+https://cleverprogrammer.com?utm_sour...​
+
+Enroll in Learn Python™ course
+https://cleverprogrammer.com?utm_sour...​
+
+==================================================
+Connect With Me!
+
+Website     ► https://cleverprogrammer.com?utm_sour...​
+Facebook  ► http://cleverprogrammer.io/facebook​
+Twitter       ► http://cleverprogrammer.io/twitter​
+Instagram ► http://cleverprogrammer.io/instagram​
+Snapchat  ► Rafeh1
+iTunes Podcast ► http://cleverprogrammer.io/podcast​
+Google Podcast    ► http://cleverprogrammer.io/google-pod...​
+Support (Patreon) ► http://cleverprogrammer.io/patreon​
+Youtube    ► https://www.youtube.com/c/CleverProgr...​
+Github (Code) ► http://cleverprogrammer.io/github

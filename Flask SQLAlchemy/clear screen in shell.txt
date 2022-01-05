@@ -1,0 +1,8 @@
+
+How do you clear the screen in shell? I've seen ways like:
+
+import os
+os.system('cls')
+This just opens the windows cmd, clears the screen and closes but I want the shell window to be cleared
+(PS: I don't know this helps, but I'm using version 3.3.2 of Python)
+Thank you :)

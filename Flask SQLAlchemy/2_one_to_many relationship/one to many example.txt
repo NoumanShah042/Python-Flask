@@ -1,0 +1,59 @@
+I want the one-to-many relationship to be as so:
+
+"For any single movie, there can be multiple characters"
+
+
+*********************************
+
+class Movie(db.Model):
+    __tablename__ = "movies"
+    id = db.Column('movies_id', db.Integer, primary_key=True)
+    movie_type = db.Column('movie_type', db.Text())
+    characters = db.relationship("Character", backref="movie", lazy='dynamic')
+    def __init__(self, movie_type):
+        self.movie_type = movie_type
+
+    def __repr__(self):
+        return '<Movie %r>' % self.id
+
+class Character(db.Model):
+    __tablename__ = "characters"
+    id = db.Column('character_id', db.Integer, primary_key=True) 
+    character_description = db.Column('character_description', db.Text())
+
+    movie_id = db.Column(db.Integer, db.ForeignKey('movies.movies_id'))
+    movie = db.relationship('Movie')
+
+    def __init__(self, character_description, movie):
+        self.character_description = character_description
+
+        self.movie = movie
+
+    def __repr__(self):
+        return '<Character %r>' % self.id
+
+
+********************************
+
+
+Inserting:
+
+
+c = Character(character_description='c')
+c2 = Character(character_description='c2')
+m = Movie(movie_type ='action')
+
+# link characters to movie
+m.characters.append(c)
+m.characters.append(c2)
+# or
+m.characters.extend([c,c2])
+
+db.session.add(m)
+# add characters
+db.session.add(c)
+db.session.add(c2)
+# or
+db.session.add_all([c,c2])
+# commit
+db.session.commit()

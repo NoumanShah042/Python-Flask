@@ -1,0 +1,49 @@
+from app import *
+C:\ProgramData\Anaconda3\lib\site-packages\flask_sqlalchemy\__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MO
+DIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppre
+ss this warning.
+  warnings.warn(FSADeprecationWarning(
+>>> db.create_all()
+>>> user = User.query.filter_by(id=1).one()
+>>> user.filename
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'User' object has no attribute 'filename'
+>>> user
+<User 1>
+>>> user.id
+1
+>>> user.profile_pic
+'df8e0a16-8551-4f0e-9b64-032898ce2aa9.jpg'
+>>>
+
+
+******************************************
+
+
+>>> "file1.txt".rsplit('.', 1)[1].lower()
+'txt'
+>>> "file1.txt".rsplit('.', 1)
+['file1', 'txt']
+>>> "file1.txt".rsplit('.', 2)
+['file1', 'txt']
+>>> "file1.txt".rsplit('.', 0)
+['file1.txt']
+>>> "file1.txt".rsplit('.', 3)
+['file1', 'txt']
+>>> "file1.txt".rsplit('.', 4)
+['file1', 'txt']
+>>> "file1.txt".rsplit('.', 1)
+['file1', 'txt']
+>>> "file1.txt".rsplit('.', 1)
+['file1', 'txt']
+>>>
+
+
+
+>>> import os
+>>> os.path.join('C:/Users/Syed Numan Rehman/Desktop/GeneralApp/static','file.txt' )
+'C:/Users/Syed Numan Rehman/Desktop/GeneralApp/static\\file.txt'
+>>> os.path.join('C:/Users/Syed Numan Rehman/Desktop/GeneralApp/static','file.txt' )
+'C:/Users/Syed Numan Rehman/Desktop/GeneralApp/static\\file.txt'
+>>>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 

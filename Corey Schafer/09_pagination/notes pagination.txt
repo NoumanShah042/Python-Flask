@@ -1,0 +1,125 @@
+python 
+
+from flaskblog.models import Post   #  post is a db model
+
+
+# traditional way 
+
+posts = Post.query.all()
+for post in posts:
+print(post)
+
+
+*************************************************
+
+#  pagination
+#  we can paginate the records of the model fetched from the query
+
+
+>  posts = Post.query.paginate() 
+
+> dir(posts)
+
+> post.total    # give total posts saved in the db model
+
+
+> post.per_page
+
+give the default per page records value
+
+> posts.page 
+ give the page we are currently on 
+
+> for post in posts.items: 	 # print 20 posts and remaining 5 are on 2nd page
+	print(post)
+
+> posts = Post.query.paginate(page=2)   #  get second page records
+
+> for post in posts.items: 	#  print last 5 items
+	print(post)
+
+
+*************************************************
+
+--> as 20 is larger value for each page we can get fewer per page 
+
+> posts = Post.query.paginate(per_page=5)      #  by default ( page = 1 )  so do not need to pass
+> posts.page
+> for post in posts.items: 	#  print first 5 items
+	print(post) 
+
+
+> posts = Post.query.paginate(per_page=5 , page = 2 )  # get 2nd page items , with 5 items per page 
+> posts.page
+> for post in posts.items: 	#  print next  5 items
+	print(post)  
+
+
+
+************************
+
+
+> posts = Post.query.paginate(per_page=2 )  # get 1st page items , with 2 items per page 
+> posts.page
+> for post in posts.items: 	#  print 2 items
+	print(post)  
+
+
+> posts = Post.query.paginate(page = 6 , per_page=2  )  # get 6th page items , with 2 items per page  
+
+
+> for page_num in posts.iter_pages(): 	 
+	print(page_num)
+
+1
+2
+None      (  for elipses ... )
+4
+5
+6
+7
+8
+9
+10
+None
+12
+13  
+
+these numbers are the links to other pages we can navigate to
+
+************************ 
+
+arguments can be passed to posts.iter_pages()  method :
+
+left_edge = 1   	tell how many pages(links) show up on the far left of the links
+right_edge = 1   	tell how many pages(links) show up on the far right of the links 
+
+left_current = 1    	how many pages left of the current page will show up
+right_current = 2   	how many pages right of the current page will show up (	right_current includes the current page  )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

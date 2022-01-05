@@ -1,0 +1,17 @@
+https://coreyms.com/portfolio/
+
+
+Sass (which stands for 'Syntactically awesome style sheets) is an extension of CSS that 
+enables you to use things like variables, nested rules, inline imports and more.
+ It also helps to keep things organised and allows you to create style sheets faster.
+
+
+What is WordPress? WordPress is web publishing software you can use to create a beautiful website or blog. 
+It just may be the easiest and most flexible blogging and website content management system (CMS) for beginners.
+
+
+Is Node JS a Language? No. Node JS is not a programming language, but it allows developers to use JavaScript, which is a programming language that allows users to build web applications. This tool is mostly used by programmers who use JavaScript to write Server-Side scripts.
+
+
+
+Vagrant is a tool for building and managing virtual machine environments in a single workflow. With an easy-to-use workflow and focus on automation, Vagrant lowers development environment setup time, increases production parity, and makes the “works on my machine” excuse a relic of the past.

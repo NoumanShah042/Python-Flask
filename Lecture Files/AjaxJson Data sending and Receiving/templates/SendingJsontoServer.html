@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sending Data </title>
+    <script>
+        function  asyncrequest(){
+            text=document.getElementById("textfield1").value;
+            console.log(text)
+            d={data:text};
+            console.log(d["data"])
+            dataString = JSON.stringify(d)
+            req= new XMLHttpRequest();
+            req.open("POST","/fetchData");
+            req.setRequestHeader("Content-Type","application/json");
+            req.send(dataString)
+            req.onreadystatechange=function(){
+                if(req.readyState==4 && req.status==200){
+                    response=req.responseText
+                    responseJson=JSON.parse(response)
+                    console.log(responseJson["responseData"])
+                    document.getElementById("textfield2").value=responseJson["responseData"]
+
+                }
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+<input type="text" id="textfield1" onblur="asyncrequest()">
+<input tpye="text" id="textfield2">
+
+</body>
+</html>

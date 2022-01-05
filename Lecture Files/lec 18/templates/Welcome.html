@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome Page</title>
+</head>
+<body>
+<script src="../static/TestClass.js"></script>
+
+<script>
+    //alert("Hello World")
+    //var name=prompt("Enter you name")
+    //console.log("name enter was:",name)
+    // Object literal Syntax
+
+    //  conversion JSON to Object
+    //  js class object to JSON and then reverse
+    let c = new Car("Kia Spotage", 2020)
+    console.log("Age" + c.age())
+    json_str = JSON.stringify(c)
+    console.log("JSON STRING : " + json_str)
+    newobj = JSON.parse(json_str)
+    console.log("year : " + newobj.year)
+
+
+    var person = {
+        firstName: "John",
+        lastName: "Doe",
+        age: 50,
+        eyeColor: "blue",
+        fullname: function () {
+            return this.firstName + " " + this.lastName
+        }
+    };
+    console.log(person["firstName"])
+    console.log("Age", person.age)
+    console.log(person.fullname())
+
+    Object.defineProperty(person, "eyeColor", {configurable: false})
+
+    test = 2500
+    console.log("test:" + test)
+    var x = 10
+    {
+        console.log("test:" + test)  // test : 2500
+        var x = 20
+        console.log("x:" + x)  // x:20
+    }
+
+    console.log("x:" + x)  //  x: 20
+
+    function testFunc() {
+        console.log("I am test function")
+    }
+
+    function testwitharguments(something) {
+        console.log(something)
+    }
+
+    testFunc();
+    testwitharguments(123456)
+
+    // Object creation
+    var car = new Object()
+    car.model = "honda civic"
+    car.year = 2019
+    car.color = "Black"
+    console.log(car.color)
+    var per_2 = person
+    per_2.age = 25
+    console.log("Age of Person", person.age)  //  25
+    console.log("Age of per_2", per_2.age)   // 25
+    x = "firstName"
+    console.log(person[x])
+    for (property in person) {
+        console.log(property)
+        console.log(person[property])
+    }
+
+
+</script>
+
+<H1>Welcome to First Web App</H1>
+<h2 id="heading_1"></h2>
+<h2 id="heading_2"></h2>
+<script>
+    var v;
+    // console.log("test:"+test)
+
+    //  arrays in javascript
+    var myarr = ["three", "One", "Eleven", "four", 1, 2, 3, 4]
+    console.log("Array", myarr[3])
+    console.log("Array length", myarr.length)
+    console.log("last element", myarr.pop())
+    //delete myarr[2]
+    myarr.sort()
+    console.log("my array contents", myarr.toString())
+
+    //  document object
+    document.getElementById("heading_1").innerHTML = "Welcome " + name
+    document.getElementById("heading_2").innerHTML = Date().toLocaleString()
+    // console.log(heading_1)
+    // console.log(Date().toLocaleString())
+
+
+</script>
+
+<!-- *****************************************-->
+<!-- set and stop clock asynchronously -->
+
+<button name="bt1" onclick="getTimeAsynchronously()">GetTimeAsynchronously</button>
+<button name="bt1" onclick="stop()">Stop clock</button>
+<p id="p1" style="background-color: lightblue"></p>
+
+<script>
+    function getTimeAsynchronously() {
+        console.log("in aynshronous function")
+        ajaxReq = new XMLHttpRequest();
+        ajaxReq.open("GET", "/getTime", true)
+        ajaxReq.send();  // send request to this url path
+        ajaxReq.onreadystatechange = function () {
+            if (ajaxReq.readyState == 4 && ajaxReq.status == 200) {
+                let res = ajaxReq.responseText
+                document.getElementById("p1").innerText = res
+            }
+        }
+    }
+
+    //  if we declare it outside of function , getTimeAsynchronously will call automatically after 1 sec
+    var time = setInterval(getTimeAsynchronously, 1000);
+
+    function stop() {
+        clearInterval(time)
+    }
+
+    function getStudentData() {
+        console.log("in aynshronous get Student Data function")
+        ajaxReq = new XMLHttpRequest();
+        ajaxReq.open("GET", "/getStudentsData", true)
+        ajaxReq.send(); // sending get request
+        ajaxReq.onreadystatechange = function () {
+            if (ajaxReq.readyState == 4 && ajaxReq.status == 200) {
+                resData = ajaxReq.responseText
+                studentlist = JSON.parse(resData)
+                text = ""
+                for (i = 0; i < studentlist.length; i++) {
+                    line = "Name: " + studentlist[i].name
+                    text = text + line
+                }
+                document.getElementById("sdata").innerText = text
+
+            }
+        }
+    }
+
+
+</script>
+
+
+<script>
+
+    function changeButtonText(v) {
+        document.getElementById("sub_btn").value = v
+    }
+
+    function resetButtonText() {
+        document.getElementById("sub_btn").value = "Submit"
+    }
+
+    function txtFieldFunction() {
+        text = document.getElementById("n1").value
+        if (text.length < 5) {
+            alert("name is invalid")
+        }
+    }
+</script>
+
+<form action="/firstFormProcessor" method="POST">
+    <label>Name</label>
+    <input type="text" id="n1" name="n" required onblur="txtFieldFunction()"/>
+    <label>RollNo</label>
+    <input type="text" name="rn" required/>
+    <label>Semmester</label>
+    <input type="number" name="sem" required/>
+    <label>CGPA</label>
+    <input type="text" name="cgpa" required/>
+
+    <input type="submit" id="sub_btn" name="submit"
+           value="submit" onmouseover="changeButtonText('mine value')"
+           onmouseout="resetButtonText()">
+</form>
+
+<br>
+<button name="btnGetData" onclick="getStudentData()">Get Students Data</button>
+<p id="sdata"></p>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Form</title>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf8"
+            src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+
+</head>
+<body>
+<H1>Welcome</H1>
+<input type="text" id="sname" name="name" required/>
+<input type="submit" id="submit" value="search student">
+<table id="mytable">
+</table>
+<script>
+    $(document.body).on('click', "#submit", function (e) {
+        //doStuff
+        console.log("hello")
+        var optVal = $("#sname").val();
+        var table;
+        console.log("search name:" + optVal)
+        //alert("optVal"+optVal)
+        var data = 'sname=' + optVal;
+        $.ajax({
+            type: "GET",
+            url: "/searchStudentsData",
+            data: data,
+            success: function (result) {
+                myData = result
+                //alert(myData)
+                if (myData != null || myData != "") {
+
+                    table = $('#mytable').DataTable({
+                        data: myData, destroy: true,
+                        columns: [
+                            {title: "Name"},
+                            {title: "Rollno"},
+                            {title: "Semmester"},
+                            {title: "CGPA"}
+
+                        ]
+                    });
+                }
+
+            }
+        });
+
+    });
+
+
+</script>
+
+
+</body>
+</html>

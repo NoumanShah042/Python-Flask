@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search donor</title>
+</head>
+
+<style>
+    label{
+        padding: 20px;
+    }
+   table input{
+        padding: 8px 25px;
+    }
+
+
+</style>
+
+<body>
+
+{{ error }}
+<a href="/sign-out" ><button> Sign out </button></a>
+<a href="/show_dashboard" ><button> Main Menu </button></a>
+<br>
+<h1 style='color:blue;'>Logged in as: {{ user}}</h1>
+<hr>
+<h2>Searching:</h2>
+<form action='/search_data' method='POST'>
+    <table>
+        <tr>
+            <td>
+                <label for="bg">Enter Blood Group</label>
+            </td>
+
+            <td>
+                <input type='text' name='bg' id='bg' placeholder="A+,O+,B+,AB+,A-,O-,B-,AB-">
+            </td>
+        </tr>
+
+    </table>
+    <br><br>
+
+    <input type='submit' value='search'>
+</form>
+
+<hr>
+
+<H1> Donor's data</H1>
+<table height=150% width=70% border="solid-black 1 pxl" cellspacing="">
+    <tr bgcolor="grey" ; style="font-family:fantasy;" align=center>
+        <th>Name</th>
+        <th>Blood Group</th>
+        <th>Phone</th>
+        <th>CNIC</th>
+        <th>City</th>
+    </tr>
+
+    {% for dnr in result_set %}
+    <tr align=center>
+        <td>{{ dnr.name }}</td>
+        <td>{{ dnr.blood_group }}</td>
+        <td>{{ dnr.phone }}</td>
+        <td>{{ dnr.cnic }}</td>
+        <td>{{ dnr.city }}</td>
+    </tr>
+    {% endfor %}
+    <hr>
+    <br>
+
+
+</table>
+<br>
+{{ msg | safe }}
+
+<br>
+<a href="/request_donors" ><button> Request Donors</button></a>
+</body>
+</html>

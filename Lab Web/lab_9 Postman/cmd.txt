@@ -1,0 +1,13 @@
+
+ http://127.0.0.1:5000/insert
+{
+    "blood group": "O+",
+    "city": "Lahore",
+    "cnic": "35164-8114371-3",
+    "name": "Nouman",
+    "phone": "0311-4159329"
+}
+
+
+
+ http://127.0.0.1:5000/update/17/Rizwan

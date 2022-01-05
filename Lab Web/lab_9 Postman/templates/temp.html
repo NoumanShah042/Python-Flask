@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="solid-black 1 pxl">
+<tr>
+    <th>Name</th>
+    <th>Blood Group</th>
+    <th>Phone</th>
+    <th>CNIC</th>
+    <th>City</th>
+</tr>
+
+    {% for r in result_set %}
+        <tr>
+            <td>{{ r.name }}</td>
+            <td>{{ r.blood_group }}</td>
+            <td>{{ r.phone }}</td>
+            <td>{{ r.cnic }}</td>
+            <td>{{ r.city }}</td>
+        </tr>
+    {% endfor %}
+
+    </table>
+</body>
+</html>
+</body>
+</html>

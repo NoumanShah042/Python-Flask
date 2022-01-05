@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add Donor</title>
+</head>
+
+<body>
+<!--WorkerID , Appoint Start Date and time Appointment End Date and time -->
+
+
+    <form action='/takeappointment' method='POST'>
+        WorkerID: <input type='text' name='name' id='name' required>
+        <br><br>
+        Appoint Start Date and time: <input type='start' placeholder="yyyy-mm-dd hh:mm"  name="start" id='start' required>
+        <br><br>
+        Appointment End Date and time: <input type='end' placeholder="yyyy-mm-dd hh:mm" name='end' id='end' required>
+        <br><br>
+
+        <input type='submit' value='Add User'>
+    </form>
+    <hr>
+
+<p>{{msg}}</p>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+
+Lecture 03 --  basic collections
+
+Lecture 04 --  mutable vs immutable types
+
+Lecture 05 --  File Handling complete
+
+Lecture 06 --  Exception Handling and OOP concept classes
+
+Lecture 07 --  OOP recap , Custom Exception classes , DB Handling Intro
+
+Lecture O8 --  Database Handling using pymysql Package
+
+Lecture O9 --  intro to flask
+
+Lecture  11 --  First Flask App 
+
+Lecture 12 --  Flask templating (Showing Data from Db to HTML table using templates)
+
+Lecture 15 --  session and cookies
+
+Lecture 18  -- JavaScript , AJAX , JSON  , Object.defineProperty
+                (  see  welcome.html file for javascript  )
+
+
+Lecture 19 ---  Project discussion and AJAX with JQUERY
+
+
+
+https://pymysql.readthedocs.io/

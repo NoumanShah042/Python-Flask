@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Students</title>
+</head>
+<body>
+{{ error }}
+<H1>  Students Data</H1>
+<H1>Welcome {{ name }} {{ rollno }}</H1>
+<table border="solid-black 1 pxl">
+<tr>
+    <th>Name</th><th>RollNo</th><th>Semmester</th><th>CGPA</th>
+</tr>
+
+    {% for student in studentsList %}
+        <tr>
+            <td>{{ student.name }}</td>
+            <td>{{ student.rollno }}</td>
+            <td>{{ student.semmester }}</td>
+            <td>{{ student.cgpa }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+  <ol>
+      {% for i in range(0,11) %}
+        {% if i%2 ==0 %}
+            <li>{{ i }}</li>
+        {% endif %}
+      {% endfor %}
+  </ol>
+
+</body>
+</html>

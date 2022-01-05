@@ -1,0 +1,5 @@
+DATABASEIP = 'localhost'
+DB_USER = 'root'
+DB_PASSWORD = 'm@vra123'
+DATABASE = 'attomus'
+SECRET_KEY = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'

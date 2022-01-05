@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign-In Page</title>
+  <h1>Sign-In</h1>
+</head>
+
+<style>
+  table {
+    font-family: Helvetica;
+    font-size: 120%;
+    font-weight: bold;
+  }
+
+  button {
+    background-color: #4CAF50;
+    font-size: 20px;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px -1px;
+    width: 25%;
+
+  }
+
+  #submit_Btn {
+    font-size: 20px;
+    padding: 5px 15px;
+    margin: 11px 31px;
+  }
+
+  a {
+    margin: 8px 39px;
+
+  }
+
+  h1 {
+    color: #3f50ea;
+    font-family: Arial;
+  }
+</style>
+
+
+<body>
+  <form action='/dashboard' method='POST'>
+    <table cellspacing="24">
+      <tr>
+        <td>
+          Email Address:
+        </td>
+
+        <td>
+          <input type="email" name="email">
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Password:
+        </td>
+
+        <td>
+          <input type="password" name="password">
+        </td>
+      </tr>
+    </table>
+    <input type='submit' id="submit_Btn" value='Sign In'>
+  </form>
+
+
+  <br><br><br>
+  <a href="/sign_up">Create Account</a>
+
+  <br><br><br>
+
+  <br><br><br>
+  <h1>{{msg}}</h1>
+
+</body>
+
+</html>

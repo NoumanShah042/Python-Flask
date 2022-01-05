@@ -1,0 +1,111 @@
+import datetime 
+dir(datetime)
+help(datetime.datetime)
+help(datetime.datetime)
+
+
+datetime = datetime.datetime(2017,3,30,22,27,0)
+(year , month , day  hour min sec)
+
+
+
+CREATE TABLE `mydb`.`quiz_scores`(
+`quiz_id` INT NOT NULL auto_increment,
+`stu_rollno`VARCHAR(11) NOT NULL,
+`quiz_datetime`datetime NOT NULL,
+`quiz_course`VARCHAR(15) NOT NULL,
+`quiz_max_marks` INT NOT NULL,
+`quiz_obtain_marks`INT NOT NULL,
+`quiz_submit_time`datetime NOT NULL,
+PRIMARY KEY(`quiz_id`),
+UNIQUE INDEX`stu_rollno`(`stu_rollno`)
+);
+
+Create a table named quiz_scores having following columns quiz_id,stu_rollno,quiz_datetime,quiz_course,quiz_max_marks,quiz_obtain_marks, quiz_submit_time
+3 points
+Create a Quiz class having following attributes quiz_id,stu_rollno,quiz_datetime,quiz_course,quiz_max_marks,quiz_obtain_marks, quiz_submit_time.Write member funcion in Quiz class which will display all attributes values.
+5 points
+create DBHandler class and create insertQuiz_score method which will take a quiz object as argument and insert record in quiz_scores table.
+10 points
+Write method in DBHandler class which will take course as arguments and return a collection of quiz scores for that object
+10 points
+Write a Custom Exception class named InvalidObtainedMarks
+5 points
+Write a method which will take user input about 5 quiz scores and create collection of quiz objects and return.
+5 points
+Write a program having a method which will take collection of quiz objects returned by previous method and print their details.
+
+import pymysql
+
+
+class quiz:
+    def _init_(self, id, rollno, datetime, course, max_marks, obtain_marks, submit_time):
+        self.quiz_id = id
+        self.stu_rollno = rollno
+        self.quiz_datetime = datetime
+        self.quiz_course = course
+        self.quiz_max_marks = max_marks
+        self.quiz_obtain_marks = obtain_marks
+        self.quiz_submit_time = submit_time
+    def displayAttributes(self):
+        print('\nQuiz ID: ', self.quiz_id)
+        print('Student roll no: ', self.stu_rollno)
+        print('Quiz Date Time: ', self.quiz_datetime)
+        print('Quiz of Course: ', self.quiz_course)
+        print('Max marks: ', self.quiz_max_marks)
+        print('Obtained marks: ', self.quiz_obtain_marks)
+        print('Submittion time: ', self.quiz_submit_time)
+
+
+class DBHandler:
+    def _init_(self, host, user, password, database):
+        self.host = host
+        self.user = user
+        self.password = password
+        self.database = database
+
+    def connection(self, query, values):
+        con = None
+        cursor = None
+        results = None
+        try:
+            con = pymysql.connect(host=self.host, user=self.user, password=self.password, database=self.database)
+            cursor = con.cursor()
+            cursor.execute(query, values)
+            con.commit()
+            results = cursor.fetchall()
+        except Exception as e:
+            print("Exception Exist")
+            print(e)
+        finally:
+            if cursor is not None:
+                cursor.close()
+            if con is not None:
+                con.close()
+        return results
+
+    def insertQuiz_score(self, quiz):
+        query = "insert into quiz_scores (stu_rollno,quiz_datetime,quiz_course,quiz_max_marks,quiz_obtain_marks,quiz_submit_time) values(%s,%s,%s,%s,%s,%s)"
+        values = (quiz.stu_rollno, quiz.quiz_datetime, quiz.quiz_course,
+                  quiz.quiz_max_marks, quiz.quiz_obtain_marks, quiz.quiz_submit_time)
+        self.connection(query, values)
+
+    def takeCourse(self, course):
+        query = "select * from quiz_scores where quiz_course = %s"
+        values = course
+        results = self.connection(query, values)
+
+        quizsList = []
+        for quiz in results:
+            quizsList.append(quizsList(quiz[0], quiz[1], quiz[2], quiz[3], quiz[4], quiz[5], quiz[6]))
+        return quizsList
+
+
+def display_table(list):
+    for quiz in list:
+        print(quiz.quiz_id, quiz.stu_rollno, quiz.quiz_datetime, quiz.quiz_course, quiz.quiz_max_marks, quiz.quiz_obtain_marks, quiz.quiz_submit_time)
+
+
+db=DBHandler("localhost","root","rooT=9780","firstdatabase")
+#quiz = Quiz(1,'BCSF18M031','2017-08-15 19:30:10','Islamiyat',100,82,'2017-08-15 19:30:10')
+#db.insertQuiz_score(quiz)

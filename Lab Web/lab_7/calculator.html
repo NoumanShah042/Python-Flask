@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <h1>Calculator</h1>
+
+</head>
+
+<style>
+    button {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: medium;
+        padding: 10px;
+        width: 48px;
+        height: 40px;
+    }
+
+    button.c {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: medium;
+        padding: 6px;
+        width: 101px;
+        height: 40px;
+    }
+
+    input {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: medium;
+        padding: 20px;
+        width: 167px;
+        height: 0px;
+        margin: 7px;
+    }
+</style>
+
+
+<body>
+    <form>
+        <input type="text" id="equation" name="equation">
+
+        <table cellpadding="1" cellspacing="5">
+
+
+            <tr>
+                <td colspan="2"><button class="c" type="button" onclick="backspace()" >Backspace</button></td>
+                <td colspan="2"><button class="c" type="button" onclick="clearAll()" >Clear</button></td>
+            </tr>
+            <tr>
+                <!-- <td> <input type="email" placeholder="" name="email" value=""> </td> -->
+                <td><button type="button" onclick="inputEquation('1')"> 1 </button></td>
+                <td><button type="button" onclick="inputEquation('2')">2</button></td>
+                <td><button type="button" onclick="inputEquation('3')"> 3 </button></td>
+                <td><button type="button" onclick="inputEquation('/')">/</button></td>
+            </tr>
+
+            <tr>
+                <td><button type="button" onclick="inputEquation('4')"> 4 </button></td>
+                <td><button type="button" onclick="inputEquation('5')">5</button></td>
+                <td><button type="button" onclick="inputEquation('6')"> 6 </button></td>
+                <td><button type="button" onclick="inputEquation('*')">*</button></td>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="inputEquation('7')"> 7 </button></td>
+                <td><button type="button" onclick="inputEquation('8')">8</button></td>
+                <td><button type="button" onclick="inputEquation('9')"> 9 </button></td>
+                <td><button type="button" onclick="inputEquation('-')">-</button></td>
+            </tr>
+
+            <tr>
+                <td><button type="button" onclick="inputEquation('0')"> 0 </button></td>
+                <td><button type="button" onclick="inputEquation('.')">.</button></td>
+                <td><button type="button" onclick="calculateResult()"> = </button></td>
+                <td><button type="button" onclick="inputEquation('+')">+</button></td>
+            </tr>
+
+        </table>
+
+    </form>
+
+    <!-- <script src="index.js"></script> -->
+
+    <script src="index.js">
+
+    </script>
+</body>
+
+</html>

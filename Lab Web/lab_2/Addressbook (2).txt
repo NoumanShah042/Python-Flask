@@ -1,0 +1,4 @@
+Shahmeer,ali,0344-6575800,425656500,Islamabad,shah@gmail.com,shah.com
+Faisal,Buhari,0366-7560807,425600565,London,bukhari@gmail.com,faisal.com
+Shahbaz,khan,0342-0575057,425054565,mecca,shehbaz@gmail.com,shabaz.com
+Ameer,Humza,0345-4565745,434564536,Sweden,ashaher@gmail.com,ameer.com

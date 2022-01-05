@@ -1,0 +1,8 @@
+Shahbaz,khan,0342-0575057,425054565,mecca,shehbaz@gmail.com,shabaz.com
+Ameer,Humza,0345-4565745,434564536,Sweden,ashaher@gmail.com,ameer.com
+saeed,shah,0324-6005857,4256561234,gujrawal,nouman@gmail.com,hello.com
+Shahmeer,ali,0344-6575800,425656500,Madina,nouman@gmail.com,hello.com
+umer,hammad,0354-6512857,425337365,New York,nouman@gmail.com,hello.com
+Shahmeer,ali,0344-6575800,425656500,Madina,nouman@gmail.com,hello.com
+Nouman,shah,0342-4556029,425676879,Lahore,nouman@gmail.com,nouman.com
+Farhan,Ali,0343-4565788,436576870,Hyderabad,farhan@gmail.com,hello.com

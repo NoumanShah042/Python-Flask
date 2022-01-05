@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome Page</title>
+</head>
+<body>
+<H1>Welcome to First Web App</H1>
+<h2>{{ num }}</h2>
+<h2>{{ datetime }}</h2>
+<a href="/showstudents"> Show Students</a>
+<form action="/firstFormProcessor" method="POST">
+    <label>Name</label>
+    <input type="text" name="n" required />
+    <label>RollNo</label>
+    <input type="text" name="rn" required/>
+    <label>Semmester</label>
+    <input type="number" name="sem" required/>
+    <label>CGPA</label>
+    <input type="text" name="cgpa" required/>
+
+    <input type="submit" name="submit" value="submit">
+</form>
+{{ error }}
+
+</body>
+</html>

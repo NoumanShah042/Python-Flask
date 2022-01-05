@@ -1,0 +1,21 @@
+
+Create a table name Attendance having following columns Stu_RollNo, Stu_Name , Attendance_Course , Attendance_Date , Attendance_Status
+
+
+CREATE TABLE `attendance`(
+`id` INT NOT NULL auto_increment,
+`Stu_RollNo`VARCHAR(11) NOT NULL,
+`Stu_Name`VARCHAR(11) NOT NULL,
+`Attendance_Course`VARCHAR(15) NOT NULL,
+`Attendance_Date` datetime NOT NULL,
+`Attendance_Status` VARCHAR(10) NOT NULL,
+PRIMARY KEY(`id`),
+UNIQUE INDEX`Stu_RollNo`(`Stu_RollNo`)
+);
+
+
+
+try:
+    
+except NegativeBalanceException as e:
+    print("Please enter correct amount")

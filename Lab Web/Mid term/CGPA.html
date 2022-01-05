@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="cgpa" required />
+    <input type="submit" id="btn" name="submit" value="submit" onclick="validateCGPA()">
+
+    <script>
+        function validateCGPA() {
+            let v = document.getElementById("cgpa").value;
+            console.log(v , typeof(v));
+            v=  parseFloat(v)
+            console.log(v , typeof(v));
+
+            if (isNaN(v) ){
+                alert("Not a number");
+
+            }
+            else if( v < 0){
+                alert("Number less than 0");
+            }
+            else if( v >4){
+                alert("Number greater than 4");
+            }
+        }
+    </script>
+</body>
+
+</html>

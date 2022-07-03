@@ -1,0 +1,39 @@
+Install Flask and create your first web application
+https://dev.to/sahilrajput/install-flask-and-create-your-first-web-application-2dba
+
+
+
+install python and add it to path
+
+0) pip install --upgrade pip
+
+1) pip install flask
+2) pip install virtualenv
+
+pip install requests
+
+pip install flask_wtf
+
+pip install email_validator
+
+pip install flask-bcrypt 
+
+pip install flask-login
+
+
+pip install Pillow   #  -- for image processing
+
+pip install Flask-Mail
+
+
+*******************************
+
+run flask :
+
+
+python app.py
+
+or 
+
+python run.py
+
